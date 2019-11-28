@@ -25,6 +25,7 @@ class App extends Component {
                 <Route path="/" component={Home} exact/>
                 <Route path="/mine" component={Mine} />
                 <Route path="/bookshelf" component={Bookshelf} />
+                <Route path="/list" component={List} />
                 <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal" className="nav">
                     <Menu.Item key="book">
                         <Link to="/bookshelf">
