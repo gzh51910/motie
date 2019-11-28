@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {nsg} from '@/api';
 
-class Home extends Component{
+class Bookshelf extends Component{
     state = {
        
     }
@@ -15,10 +15,10 @@ class Home extends Component{
        
         return (
             <div>
-              home
+              Bookshelf
             </div>
         )
     }
 }
 
-export default Home;
+export default Bookshelf;
