@@ -30,6 +30,7 @@ class App extends Component {
                 <Route path="/Invest" component={Invest} />
                 <Route path="/Login" component={Login} />
                 <Route path="/bookshelf" component={Bookshelf} />
+                <Route path="/list" component={List} />
                 <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal" className="nav">
                     <Menu.Item key="book">
                         <Link to="/bookshelf">

@@ -6,8 +6,8 @@ const nsg = axios.create({
 });
 
 // 二次封装(简化操作,维护方便)
-async function get(params,config={}){
-  let {data} = await nsg.get('',{
+async function get(path,params,config={}){
+  let {data} = await nsg.get(path,{
     ...config,
     params
   });
@@ -15,8 +15,8 @@ async function get(params,config={}){
   return data;
 }
 
-function post(data,config={}){
-  return nsg.post('',data,config);
+function post(path,data,config={}){
+  return nsg.post(path,data,config);
 }
 
 export default {
