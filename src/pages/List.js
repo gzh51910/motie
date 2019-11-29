@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import {my} from '@/api'
 import {Tabs,Icon} from 'antd';
 import GetList from '@/components/GetList';
+import GetListMenu from '@/components/GetListMenu';
 import '../css/List.css';
 
 class List extends Component{
@@ -20,12 +21,10 @@ class List extends Component{
                 classify:["全部","免费","付费"]
             }
         ],
-        datalist:[]
+        datalist:[],
+        down:true,
     }
     async componentDidMount(){
-       
-    
-
         let {data} = await my.get("/sort",{
            page:1,
         })
@@ -34,7 +33,13 @@ class List extends Component{
         })
         console.log(this.state.datalist);
     }
-    
+    menupull=()=>{
+        this.setState({
+            down:!this.state.down
+        })
+        
+        
+    }
     render(){ 
         // let {datalist} = this.state;
         return (
@@ -48,24 +53,35 @@ class List extends Component{
 
                     <div className="ListMenuContent">
                         {this.state.menulist.map((item,idx)=>{
-                            return <div className="ListMenuChannel ListClear" key={idx}>
-                                <span className="ListMenuChannel-L">{item.title}</span>
-                         
-                                {item.classify.map((ele,index)=>{
-                                    return <span className="ListMenuChannel-R" key={index+"i"}>
-                                    <i className="ListMenuIcon" >{ele}</i>
-                                </span>
-                                }
-                                )
-                                    /* // item.classify.map((ele,index)=>{
-                                    //     return <span key={index}>{ele}</span>
-                                    // })  
-                                 */
-                                }
+                            return (
+                                <div 
+                                    className="ListMenuChannel ListClear" 
+                                    key={idx} 
+                                    style={{height:(idx==1 && this.state.down)?"9vw":"auto",overflow:"hidden"}}
+                                >
+                                    <span className="ListMenuChannel-L">{item.title}</span>
+                                    <GetListMenu item={item}/>
+                                    {//item.classify.map((ele,index)=>{
+                                        //return <GetListMenu item={item}/>
+                                        
+                                    //     return <span className="ListMenuChannel-R" key={index+"i"} >
+                                    //     <i onClick="" className={this.state.active==index?"ListMenuIcon-Active ListMenuIcon":"ListMenuIcon"}>{ele}</i>
+                                    // </span>
+                                    //}
+                                    //)
+                                        /* // item.classify.map((ele,index)=>{
+                                        //     return <span key={index}>{ele}</span>
+                                        // })  
+                                    */
+                                    }
                                 </div>
+                            )
                       
                         })}
-                        <Icon className="ListMenuPull" type="up" />
+                        {/* 下拉隐藏 */}
+                        <span onClick={this.menupull}>
+                            <Icon className="ListMenuPull" type={this.state.down?"up":"down"}  />
+                        </span>
                     </div>
                 </div>
                 {/* 列表内容 */}

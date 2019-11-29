@@ -49,6 +49,21 @@ module.exports = {
                 test:/\.scss$/,
                 use:['style-loader','css-loader','sass-loader'],
                 include:path.join(__dirname,'./src')
+            },
+
+            {
+                // 正则匹配所有以.png,jpg,gif结尾的文件
+                test: /\.(png|jpg|gif)$/,
+                // 使用url-loader对图片进行处理
+                use: [
+                    {
+                        loader: 'url-loader',
+                        // 将小于8K的图片以base64的形式打包到js文件中
+                        options: {
+                            limit: 8192
+                        }
+                    }
+                ]
             }
         ]
     },
