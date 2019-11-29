@@ -9,8 +9,10 @@ import Reg from '~/Reg';
 import Login from '~/Login';
 import Mine from '~/Mine';
 import Goods from '~/Goods';
-import List from '~/List'
+import Invest from '~/Invest';
+import List from '~/List';
 import {connect} from 'react-redux';
+import Inf from '~/Inf';
 
 class App extends Component {
   
@@ -24,6 +26,9 @@ class App extends Component {
             <div>
                 <Route path="/" component={Home} exact/>
                 <Route path="/mine" component={Mine} />
+                <Route path="/Inf" component={Inf} />
+                <Route path="/Invest" component={Invest} />
+                <Route path="/Login" component={Login} />
                 <Route path="/bookshelf" component={Bookshelf} />
                 <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal" className="nav">
                     <Menu.Item key="book">
