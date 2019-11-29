@@ -1,0 +1,172 @@
+ul,h2,h4,p,img{
+    margin: 0;
+    padding: 0;
+}
+ul,li{
+    list-style: none;
+}
+i,em{
+    font-style: normal;
+}
+
+/* #List{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+} */
+#ListMenu {
+    box-sizing: border-box;
+    width: 100%;
+    /* padding-top: 6vw; */
+}
+.ListMenuHeader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 12vw;
+    z-index: 99;
+    background-color: antiquewhite;
+    border-bottom: 1px solid #e5e5df;
+}
+.ListMenuHeader .ListHeaderBack{
+    font-size: 4.5vw;
+    position: absolute;
+    top: 3.6vw;
+    left: 4vw;
+}
+.ListMenuHeader h2{
+    /* display: inline; */
+    font-size: 6vw;
+    font-size: 4.8vw;
+    text-align: center;
+    line-height: 12vw;
+}
+/* menuContent */
+.ListMenuContent{
+    width: 100%;
+    padding: 14.6vw 4.6vw 5.6vw 4.6vw;
+    border-bottom: 1px solid #e5e5df;
+}
+.ListMenuChannel{
+    width: 100%;
+}
+.ListMenuChannel-L{
+    height: 9vw;
+    display: block;
+    float: left;
+    padding: 0.8vw;
+    margin-right: 1.6vw;
+}
+#ListMenuChannel-R-Box{
+    float:left;
+}
+.ListMenuChannel-R{
+    display: block;
+    float: left;
+    color: #bbb;
+    margin-right: 1vw;
+    margin-bottom: 1.8vw;
+}
+
+/* 分类菜单点击 */
+.ListMenuIcon-Active{
+    display: block;
+    color: #ee5048;
+    border: 1px solid #ee5048;
+}
+.ListMenuIcon{
+    display: block;
+    width: 18.6vw;
+    height: 7vw;
+    text-align: center;
+    line-height: 6.4vw;
+    border: 1px solid #bbb;
+    border-radius: 7vw;
+}
+.ListClear::after{
+    content: "";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+.ListMenuPull{
+    position: absolute;
+    top: 25.4vw;
+    right: 2vw;
+}
+
+
+/* 列表内容 */
+.ListContents{
+    width: 100%;
+    padding: 0 4vw 4.6vw;
+    margin-bottom: 12vw;
+}
+.ListContents li{
+    float: left;
+    padding-top: 4.4vw;
+    border-bottom: 1px solid #e5e5df;
+}
+/* l */
+.ListContents li figure{
+    /* width: 30vw;
+    height: 45vw; */
+    float: left;
+}
+.ListContents li figure img{
+    display: block;
+    width: 22.8vw;
+    height: 33vw;
+    border-radius: 1.6vw;
+}
+/* r */
+.ListContents li figcaption{
+    width: 68vw;
+    height: 33vw;
+    padding: 0 2vw;
+    float: left;
+}
+.ListContents li figcaption h4{
+    font-size: 4vw;
+    color: #333;
+    padding-bottom: 2vw;
+}
+.ListContents .ListContents-Des{
+    height: 13vw;
+    line-height: 6vw;
+    font-size: 4vw;
+    color: #999;
+    margin-bottom: 3vw;
+    /* white-space: nowrap; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* Msg */
+.ListContents .ListContents-MSg{
+    color: #bbb;
+    font-size: 3.6vw;
+}
+.ListContents .ListContents-MSg .MSg-L{
+    float: left;
+}
+.ListContents .ListContents-MSg img{
+    margin:0.8vw 2vw 0 0;
+    float: left;
+    display: inline-block;
+    width: 4.4vw;
+    height: 4.4vw;
+}
+.ListContents .ListContents-MSg .MSg-R{
+    /* width: 9vw; */
+    height: 5.2vw;
+    padding: 0 0.6vw;
+    margin-right: 1vw;
+    margin-top: 0.6vw;
+    text-align: center;
+    line-height: 3.8vw;
+    float: right;
+    border: 1px solid #e5e5df;
+    border-radius: 0.8vw;
+}

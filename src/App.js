@@ -9,11 +9,13 @@ import Reg from '~/Reg';
 import Login from '~/Login';
 import Mine from '~/Mine';
 import Goods from '~/Goods';
-import List from '~/List'
+import Invest from '~/Invest';
+import List from '~/List';
 import {connect} from 'react-redux';
 import {nsg,my} from './api'
 import homenv from '~/homenv';
 import homecb from '~/homecb';
+import Inf from '~/Inf';
 
 class App extends Component {
   
@@ -30,9 +32,13 @@ class App extends Component {
                 <Route path="/" component={Home} exact/>
                 <Route path="Home" component={Home} exact/>
                 <Route path="/mine" component={Mine} />
+                <Route path="/Inf" component={Inf} />
+                <Route path="/Invest" component={Invest} />
+                <Route path="/Login" component={Login} />
                 <Route path="/bookshelf" component={Bookshelf} />
                 <Route path="/homenv" component={homenv} />
                 <Route path="/homecb" component={homecb} />
+                <Route path="/list" component={List} />
                 <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal" className="nav">
                     
                     <Menu.Item key="book">
