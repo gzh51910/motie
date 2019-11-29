@@ -28,10 +28,13 @@ class List extends Component{
         let {data} = await my.get("/sort",{
            page:1,
         })
+    
+        
+
         this.setState({
             datalist:data
         })
-        console.log(this.state.datalist);
+      
     }
     menupull=()=>{
         this.setState({
