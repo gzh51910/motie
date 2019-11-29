@@ -11,6 +11,9 @@ import Mine from '~/Mine';
 import Goods from '~/Goods';
 import List from '~/List'
 import {connect} from 'react-redux';
+import {nsg,my} from './api'
+import homenv from '~/homenv';
+import homecb from '~/homecb';
 
 class App extends Component {
   
@@ -18,14 +21,20 @@ class App extends Component {
         
     }
     
-    render() {
 
+    render() {
+     
+     
         return (
             <div>
                 <Route path="/" component={Home} exact/>
+                <Route path="Home" component={Home} exact/>
                 <Route path="/mine" component={Mine} />
                 <Route path="/bookshelf" component={Bookshelf} />
+                <Route path="/homenv" component={homenv} />
+                <Route path="/homecb" component={homecb} />
                 <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal" className="nav">
+                    
                     <Menu.Item key="book">
                         <Link to="/bookshelf">
                             <Icon type="book" />
@@ -50,6 +59,7 @@ class App extends Component {
         )
     }
 }
+import { format } from 'path';
 
 App = withRouter(App);
 export default App;

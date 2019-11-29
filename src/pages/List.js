@@ -13,6 +13,8 @@ class List extends Component{
         let {datas} = await nsg.get({
            
         })
+        console.log(datas);
+        
 
     }
     
