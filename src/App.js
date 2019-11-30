@@ -4,7 +4,9 @@ import { Route, Redirect, Switch, Link, NavLink, withRouter } from 'react-router
 import {Menu,Icon} from 'antd'
 import './App.scss';
 import Home from '~/Home';
+import Detail from '~/detail';
 import Bookshelf from '~/Bookshelf'
+import Reward from "~/Reward";
 import Reg from '~/Reg';
 import Login from '~/Login';
 import Mine from '~/Mine';
@@ -26,6 +28,8 @@ class App extends Component {
                 <Route path="/mine" component={Mine} />
                 <Route path="/bookshelf" component={Bookshelf} />
                 <Route path="/list" component={List} />
+                <Route path="/detail" component={Detail} />
+                <Route path="/reward" component={Reward} />
                 <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal" className="nav">
                     <Menu.Item key="book">
                         <Link to="/bookshelf">

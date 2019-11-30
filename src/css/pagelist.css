@@ -1,0 +1,25 @@
+.pagetop{
+    padding:3vw 4vw;
+    box-sizing:border-box;
+    font-size:5vw;
+    font-weight:700;
+    text-align:center;
+    background:#eee
+}
+.sort{
+    float:right;
+}
+.pagewrap{
+    overflow-y:scroll
+}
+.pagewrap li{
+    padding:3vw 5vw;
+    border-bottom:1px solid #ccc;
+    font-size:4vw;
+}
+.sort{
+    color:red;
+    border:1px solid red;
+    padding:0 2vw;
+    border-radius:3vw;
+}

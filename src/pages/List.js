@@ -23,9 +23,6 @@ class List extends Component{
         datalist:[]
     }
     async componentDidMount(){
-       
-    
-
         let {data} = await my.get("/sort",{
            page:1,
         })
