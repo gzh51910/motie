@@ -25,34 +25,31 @@ class Detail extends Component {
     }
     getData = async (id=152278) => {
         let data = await my.get("/detail",{
-            id:153810
+            id:id
         });
         let view = await my.get("/view");
         
         this.setState({
             detail:data.data[0],
             view:view.data,
+            id:data.data[0].id
         })  
     }
-    
     componentDidMount() {
-        this.getData()
-    }
-    shouldComponentUpdate(p,s){
-        console.log(p,s,"====");
-        return true
+        let id=this.props.location.search.split("=")[1];
+        this.getData(id)
     }
     goto(id){
-        
+        this.setState({pagelist:[]})
         this.getData(id)
     }
     tohide=()=>{
         this.setState({hide:true})
     }
-    getpage=async ()=>{
+    getpage=async (id=153810)=>{  
         if(this.state.pagelist==""){
             let pagelist = await my.get("/pagelist",{
-                id:153810
+                id
             });
             this.setState({
                 pagelist:pagelist.data[0].data
@@ -95,10 +92,10 @@ class Detail extends Component {
                     </div>
                     <div className="bookbtn">
                         <span>加入书架</span>
-                        <span>立即阅读</span>
+                        <span onClick={()=>{ this.props.history.push(`/read?id=${detail.firstChapterId}&bookid=${detail.id}`)} }>立即阅读</span>
                     </div>
                     <div className="bookct">
-                        <span onClick={()=>{console.log(this.props.history.push("/reward"))}}><Icon type="dollar" className="cticon" />打赏(<em>{detail.reward}</em>)</span>
+                        <span onClick={()=>{this.props.history.push("/reward")}}><Icon type="dollar" className="cticon" />打赏(<em>{detail.reward}</em>)</span>
                         <span><Icon type="like" className="cticon"/>推荐(<em>{detail.supportCount}</em>)</span>
                     </div>
                 </div>
@@ -108,7 +105,7 @@ class Detail extends Component {
                         <p >
                             {detail.introduce}
                         </p>
-                        <div onClick={this.getpage}>
+                        <div onClick={()=>{this.getpage(detail.id)}}>
                             <span>目录</span>连载至：{detail.lastChapterList?detail.lastChapterList[0].name:""}
                         </div>
                     </div>
