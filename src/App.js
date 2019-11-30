@@ -20,6 +20,7 @@ import homenv from '~/homenv';
 import homecb from '~/homecb';
 import Inf from '~/Inf';
 import Read from './pages/Read';
+import Foundmore from '~/Foundmore';
 
 class App extends Component {
   
@@ -47,6 +48,8 @@ class App extends Component {
                 <Route path="/reward" component={Reward} />
                 <Route path="/rank" component={Rank} />
                 <Route path="/read" component={Read} />
+                <Route path="/Foundmore" component={Foundmore} />
+                
                 <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal" className="nav">
                     
                     <Menu.Item key="book">
