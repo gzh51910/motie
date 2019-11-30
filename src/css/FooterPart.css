@@ -1,0 +1,81 @@
+ul,h2,h4,p,img{
+    margin: 0;
+    padding: 0;
+}
+ul,li{
+    list-style: none;
+}
+i,em{
+    font-style: normal;
+}
+
+
+#FooterPart{
+    width:100%;
+    box-sizing: border-box;
+    border-top: 2.4vw solid #f5f5f5;
+}
+/* title */
+.FooterPart-Title{
+    width:100%;
+    padding:5.4vw 0 6vw;
+    /* background:#f00; */
+}
+.FooterPart-Title h3{
+    font-size:4.6vw;
+    text-align:center;
+    line-height:6vw;
+}
+.FooterPart-Title i{
+    display:block;
+    margin:0 auto;
+    width:11vw;
+    border:1px solid #edc148!important;
+    text-align:center;
+}
+/* list */
+.FooterPart-List{
+    /* width:100%; */
+    margin:0 4vw;
+}
+.FooterPart-List li{
+    width:100%;
+    float:left;
+    margin-bottom: 2.4vw;
+    padding:5vw 2.4vw 3vw;
+    border:1px solid #ddd;
+    border-radius: 1vw;
+}
+.FooterPart-List li figure{
+    float:left;
+}
+.FooterPart-List li figure img{
+    width:10vw;
+    height:10vw;
+    margin-right:2vw;
+}
+.FooterPart-List li figcaption{
+    float:left;
+    width: 74vw;
+}
+.FooterPart-List li figcaption h4{
+    /* float:left; */
+    color: #333;
+    font-size:4vw;
+    line-height:6.8vw;
+}
+.FooterPart-List li figcaption p{
+    font-size:3.6vw;
+}
+.FooterPart-List li figcaption {
+    /* float:left; */
+    color: #bbb;
+    font-size:3vw;
+    line-height:4vw;
+}
+.FooterClear::after{
+    content: "";
+    clear: both;
+    display: block;
+    visibility: hidden;
+}

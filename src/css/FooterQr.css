@@ -1,0 +1,65 @@
+ul,h2,h4,p,img{
+    margin: 0;
+    padding: 0;
+}
+ul,li{
+    list-style: none;
+}
+i,em{
+    font-style: normal;
+}
+
+#FooterQr{
+    width: 100%;
+    margin-bottom: 22vw;
+    padding: 0 4vw;
+    box-sizing: border-box;
+    border-top: 2.4vw solid #f5f5f5;
+}
+.FooterQr-Tip{
+    color: #333;
+    font-size: 4vw;
+    text-align: center;
+    padding-top: 8vw;
+}
+.FooterQr-code{
+    margin-top: 5vw;
+}
+.FooterQr-code i{
+    display: block;
+    margin: 0 auto;
+    width: 35vw;
+    height: 35vw;
+    border: 1px solid #bbb;
+}
+.FooterQr-code i img{
+    margin: 0.6vw auto 0;
+    display: block;
+    width: 33.6vw;
+    height: 33.6vw;
+}
+.FooterQr-code span{
+    width: 36vw;
+    color: #bbb;
+    font-size: 3.4vw;
+    margin: 5vw auto;
+    display: block;
+}
+.FooterQr-Link{
+    width: 60vw;
+    font-size: 3.4vw;
+    margin: 6vw auto 2vw;
+}
+.FooterQr-Link a{
+    color: #333;
+}
+.FooterQr-Link span{
+    color: #bbb;
+    margin: 0 6vw;
+}
+.FooterQr-Motie{
+    width: 28vw;
+    color: #999;
+    font-size: 3.4vw;
+    margin: 0 auto;
+}

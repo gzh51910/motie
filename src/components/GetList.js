@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../css/List.css';
 function GetList({item}){
     return (
         <li key={item.id}>
@@ -11,9 +11,9 @@ function GetList({item}){
                     <span className="MSg-L">
                         <img src={item.authorIcon}/>{item.authorName}
                     </span>
-                    {item.bookTags.map((ele,idx)=>{
+                    {/* {item.bookTags.map((ele,idx)=>{
                     return <span className="MSg-R" key={idx}>{ele}</span>
-                    })} 
+                    })}  */}
                 </p>
             </figcaption> 
         </li>

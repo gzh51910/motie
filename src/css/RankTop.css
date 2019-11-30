@@ -1,0 +1,32 @@
+#rank-top .ant-tabs-nav .ant-tabs-ink-bar{
+    width: 20vw;
+}
+#rank-top .ant-tabs-nav .ant-tabs-tab{
+    padding: 12px 40px !important;
+    margin: 0;
+}
+
+#rank-top .ant-tabs-top-bar{
+    margin: 0 !important;
+}
+
+
+#rank-top .ant-tabs-nav-wrap{
+    padding: 0 20vw;
+}
+#rank-top .ant-tabs-nav .ant-tabs-tab-active {
+    color: #ee5048;
+}
+#rank-top .ant-tabs-nav-scroll{
+    margin: 0 auto;
+    color: #666666;
+    font-size: 4vw;
+}
+#rank-top .ant-tabs-nav .ant-tabs-tab:hover {
+    color: #ee5048;
+}
+#rank-top .ant-tabs-ink-bar {
+    background-color: #ee5048;
+    border-bottom: 3px;
+    transform: translate3d(10px, 0px, 0px);
+}

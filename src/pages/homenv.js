@@ -1,10 +1,10 @@
 import React,{Component} from 'react';
 import {nsg,my} from '@/api';
 import '../css/home.css';
-import {Carousel,Icon,Menu,SubMenu,Badge} from 'antd'
+import {Carousel,Icon,Menu,SubMenu,Badge, Divider} from 'antd'
 
 
-class Home extends Component{
+class Homenv extends Component{
     constructor(prop){
         super(prop);
         this.state={
@@ -26,21 +26,21 @@ class Home extends Component{
             NEWbook_main:[],
             foundit:[],
             foundit_name:[],
-            
-
          
         }
     }
     async componentDidMount(){
 
-         let datas = await my.get('main');
+         let datas = await my.get('nv');
         let main = datas.data
+        console.log(main,"main+++");
+        
         let  banner = main[0].dataSourceList[0].dataList
         let lvl = main[2].dataSourceList[0].dataList
         let recommend  = main[3].dataSourceList[0].dataList
         let recommend_name = main[3]
-        let maincategory = main[4]
-        let maincategory_main =main[4].dataSourceList[0].dataList
+        let maincategory = main[10]
+        let maincategory_main =main[10].dataSourceList[0].dataList
         let datu =main[5].dataSourceList[0].dataList[0].imgUrl
         let Collection  = main[6].dataSourceList[0].dataList
         let Collection_name = main[6]
@@ -50,8 +50,8 @@ class Home extends Component{
         let WEATHERVANE_name = main[8]
         let NEWbook = main[9]
         let NEWbook_main =main[9].dataSourceList[0].dataList
-        let foundit  = main[10].dataSourceList[0].dataList
-        let foundit_name = main[10]
+        let foundit  = main[4].dataSourceList[0].dataList
+        let foundit_name = main[4]
             this.setState({
                 banner,
                 main,
@@ -86,36 +86,43 @@ class Home extends Component{
         
         
     }
-   
     tiaozhuan = (id) =>{
         // console.log("--------",id);
+        // this.props.history.push(`/homenv`);
         if(id==1){
-
+            this.props.history.push(`/`);
         }else if(id == 2){
-            this.props.history.push(`/homenv`);
+          
     
         }else if(id==3){
             this.props.history.push(`/homecb`);
+            
         }
         
-    
-
-
-        
     }
-    
     render(){
         let {banner,lvl,recommend,main,recommend_name,maincategory,maincategory_main,datu,Collection,Collection_name,Finishedboutique,
         Finishedboutique_main,WEATHERVANE,WEATHERVANE_name, NEWbook, NEWbook_main,foundit,foundit_name} = this.state
       
         // console.log(main,"++++++");
-        // console.log(datu,"++++");
-        //.dataSourceList[0].dataList
+        // console.log(maincategory,"++++");
+        let app = recommend.slice(0,3);
+        let app2 = recommend.slice(3,7);
+        let pppdd1 = maincategory_main.slice(0,3);
+        let pppdd2 = maincategory_main.slice(3,6);
+        let pppdd3 = maincategory_main.slice(6,9);
+        let pppdd4 = maincategory_main.slice(9,12);
+        let pppdd5 = maincategory_main.slice(12,15);
+        let pppdd6 = maincategory_main.slice(15,18);
+        // //.dataSourceList[0].dataList
+    
+    //   console.log(pppdd1,pppdd2,pppdd3,pppdd4,pppdd5,pppdd6);
+      
         
-      
-      
-        return (
-            <div>
+    //   if(banner==undefined);{
+          
+    //   }
+        return (     
             <div>
                 {/* header */}
                 <div>
@@ -128,8 +135,8 @@ class Home extends Component{
                                 mode="horizontal"
                                 defaultSelectedKeys={['1']}
                             >
-                                <Menu.Item onClick={()=>{this.tiaozhuan(1)}} key="1"><a>男生</a></Menu.Item>
-                                <Menu.Item onClick={()=>{this.tiaozhuan(2)}}><a>女生</a></Menu.Item>
+                                <Menu.Item onClick={()=>{this.tiaozhuan(1)}}><a>男生</a></Menu.Item>
+                                <Menu.Item onClick={()=>{this.tiaozhuan(2)}} key="1"><a>女生</a></Menu.Item>
                                 <Menu.Item onClick={()=>{this.tiaozhuan(3)}}><a>出版</a></Menu.Item>
                             </Menu>
                                 {/* <li className="hightline_top"><a>男生</a></li>
@@ -144,22 +151,16 @@ class Home extends Component{
                     </section>
                 </div>
 
-
-                {/* 轮播 */}
+                 {/* 轮播 */}
                 <Carousel autoplay>
-                        {  
-                            banner.map(item=>   <div key={item.name} ><img key={item.name}  src={item.imgUrl} /> </div>)
-                        }
-                    </Carousel>
-
-                   
-
+                {  
+                    banner.map(item=>   <div key={item.name} ><img key={item.name}  src={item.imgUrl} /> </div>)
+                }
+                </Carousel>
                 {/* 浏览记录 */}
                 <div className="lvl">
                         浏览记录
                     </div>
-            </div>
-
                 {/* 分类列表 */}
                 <Menu
                     mode="horizontal"
@@ -177,76 +178,29 @@ class Home extends Component{
                         })
                     }
                 </Menu>
-
                 {/* 主编力荐 */}
-                <div>
-                <div className="recommned">
+                <div className="fllow">
+                <div className="recommned fllow">
                     <div className='recommned_top' title={recommend_name.bookName}><Icon type="like" />{recommend_name.name}</div>
+                   <div className="lunbo11">
+                    <Carousel autoplay>
+                        <div>
                         {  
-                            recommend.map(item=>  <div className="recommend_img" key={item.bookId} >
-                                <img onClick={()=>{this.getid(item.bookId)}} key={item.name} style={{width:"100%"}}  src={item.imgUrl} /><p className="recommned_p">{item.bookName}</p> </div>)
+                            app.map(item=>  <div className="recommend_img" key={item.bookId} ><img className="imgtttt" onClick={()=>{this.getid(item.bookId)}} key={item.name} style={{width:"100%"}}  src={item.imgUrl} /><p className="recommned_p">{item.bookName}</p> </div>)
                         }
-                </div>
-                </div>
-
-                {/* 主打分类 */}
-                <div className="maincategory">
-                    <div className='maincategory_top' title={recommend_name.bookName}><Icon type="like" />{maincategory.name}</div>
-                    {  
-                        maincategory_main.map(item=>  <div className="maincategory_img" key={item.bookId} ><img onClick={()=>{this.getid(item.bookId)}} key={item.name} className="maincategory_imgone"  src={item.imgUrl} /><div className="maincategory_neirong"><p className="maincategory_top_name">{item.bookName}</p><p className="maincategory_top_nneirong">{item.introduction}</p><div className="maincategory_foot"><img className="img_head" src={item.userImgUrl}></img><p className="zuozhe">{item.PenName}</p><p className="booksname">{item.category}</p></div></div></div>)    }
-                    
-
-                </div>
-                <div className="moer">查看更多</div>
-
-                {/*  大图*/}
-                <div className="datu">
-                    <img src={datu} style={{width:'100%'}}></img>
-                </div>
-
-                {/* 书友收藏 */}
-                <div className="recommned">
-                    <div className='Collection_name_top' title={Collection_name.bookName}><Icon type="like" />{Collection_name.name}</div>
-                    
+                        </div>
+                        <div>                      
                         {  
-                            Collection.map(item=>  <div className="recommend_img" key={item.bookId} ><img  onClick={()=>{this.getid(item.bookId)}} key={item.name} style={{width:"100%"}}  src={item.imgUrl} /><p className="recommned_p">{item.bookName}</p> </div>)
-                        }
-                    
-
+                            app2.map(item=>  <div className="recommend_img" key={item.bookId} ><img className="imgtttt" onClick={()=>{this.getid(item.bookId)}} key={item.name} style={{width:"100%"}}  src={item.imgUrl} /><p className="recommned_p">{item.bookName}</p> </div>)
+                        } 
+                        </div>
+                    </Carousel>
+                    </div>
+                </div>
                 </div>
 
-                {/* 完本精品 */}
-                
-                <div className="maincategory">
-                    <div className='maincategory_top' title={recommend_name.bookName}><Icon type="like" />{Finishedboutique.name}</div>
-                    {  
-                Finishedboutique_main.map(item=>  <div className="maincategory_img" key={item.bookId} ><img  onClick={()=>{this.getid(item.bookId)}} key={item.name} className="maincategory_imgone"  src={item.imgUrl} /><div className="maincategory_neirong"><p className="maincategory_top_name">{item.bookName}</p><p className="maincategory_top_nneirong">{item.introduction}</p><div className="maincategory_foot"><img className="img_head" src={item.userImgUrl}></img><p className="zuozhe">{item.PenName}</p><p className="booksname">{item.category}</p></div></div></div>)    }
-                    
 
-                </div>
-                <div className="moer">查看更多</div>
-
-                {/* 无线风向标 */}
-                
-                <div className="recommned">
-                    <div className='Collection_name_top' title={Collection_name.bookName}><Icon type="like" />{WEATHERVANE_name.name}</div>
-                        {  
-                            WEATHERVANE.map(item=>  <div className="recommend_img" key={item.bookId} ><img  onClick={()=>{this.getid(item.bookId)}}key={item.name} style={{width:"100%"}}  src={item.imgUrl} /><p className="recommned_p">{item.bookName}</p> </div>)
-                        }
-                </div>
-                <div className="moer">查看更多</div>
-
-                {/* 新书抢先看*/}
-                <div className="maincategory">
-                    <div className='maincategory_top' title={recommend_name.bookName}><Icon type="like" />{NEWbook.name}</div>
-                    {  
-                NEWbook_main.map(item=>  <div className="maincategory_img" key={item.bookId} ><img  onClick={()=>{this.getid(item.bookId)}} key={item.name} className="maincategory_imgone"  src={item.imgUrl} /><div className="maincategory_neirong"><p className="maincategory_top_name">{item.bookName}</p><p className="maincategory_top_nneirong">{item.introduction}</p><div className="maincategory_foot"><img className="img_head" src={item.userImgUrl}></img><p className="zuozhe">{item.PenName}</p><p className="booksname">{item.category}</p></div></div></div>)    }
-                    
-
-                </div>
-                <div className="moer">查看更多</div>
-
-                {/* 发现好书 */}
+                {/* 私人定制 */}
 
                 <div className="recommned gd">
                     <div className='Collection_name_top' title={Collection_name.bookName}><Icon type="like" />{foundit_name.name}</div>
@@ -256,22 +210,75 @@ class Home extends Component{
                 </div>
                 <div className="moer" onClick={()=>{this.getid(Collection_name.id)}} >查看更多</div>
 
-                {/*内容支撑  */}
-                  <div className="mafooter"></div>
+                
+                {/* 完本精品 */}
+                
+                <div className="maincategory">
+                    <div className='maincategory_top' title={recommend_name.bookName}><Icon type="like" />{Finishedboutique.name}</div>
+                    {  
+                Finishedboutique_main.map(item=>  <div className="maincategory_img" key={item.bookId} ><img  onClick={()=>{this.getid(item.bookId)}} key={item.name} className="maincategory_imgone"  src={item.imgUrl} /><div className="maincategory_neirong"><p className="maincategory_top_name">{item.bookName}</p><p className="maincategory_top_nneirong">{item.introduction}</p><div className="maincategory_foot"><img className="img_head" src={item.userImgUrl}></img><p className="zuozhe">{item.cpName}</p><p className="booksname">{item.category}</p></div></div></div>)    }
+                    
+
+                </div>
+                <div className="moer">查看更多</div>
+                {/* 无线风向标 */}
+                
+                <div className="recommned">
+                    <div className='Collection_name_top' title={Collection_name.bookName}><Icon type="like" />{WEATHERVANE_name.name}</div>
+                        {  
+                            WEATHERVANE.map(item=>  <div className="recommend_img" key={item.bookId} ><img  onClick={()=>{this.getid(item.bookId)}}key={item.name} style={{width:"100%"}}  src={item.imgUrl} /><p className="recommned_p">{item.bookName}</p> </div>)
+                        }
+                </div>
+                <div className="moer">查看更多</div>
+                 {/* 发现好书 */}
+                 <div className="fllow">
+                <div className="recommned fllow">
+                    <div className='recommned_top' title={recommend_name.bookName}><Icon type="like" />{maincategory_main.name}</div>
+                   <div className="lunbo11">
+                    <Carousel autoplay>
+                        <div>
+                        {  
+                            pppdd1.map(item=>  <div className="recommend_img" key={item.bookId} ><img className="imgtttt" onClick={()=>{this.getid(item.bookId)}} key={item.name} style={{width:"100%"}}  src={item.imgUrl} /><p className="recommned_p">{item.bookName}</p> </div>)
+                        }
+                        </div>
+                        <div>                      
+                        {  
+                            pppdd2.map(item=>  <div className="recommend_img" key={item.bookId} ><img className="imgtttt" onClick={()=>{this.getid(item.bookId)}} key={item.name} style={{width:"100%"}}  src={item.imgUrl} /><p className="recommned_p">{item.bookName}</p> </div>)
+                        } 
+                        </div>
+                        <div>                      
+                        {  
+                            pppdd3.map(item=>  <div className="recommend_img" key={item.bookId} ><img className="imgtttt" onClick={()=>{this.getid(item.bookId)}} key={item.name} style={{width:"100%"}}  src={item.imgUrl} /><p className="recommned_p">{item.bookName}</p> </div>)
+                        } 
+                        </div>
+                        <div>                      
+                        {  
+                            pppdd4.map(item=>  <div className="recommend_img" key={item.bookId} ><img className="imgtttt" onClick={()=>{this.getid(item.bookId)}} key={item.name} style={{width:"100%"}}  src={item.imgUrl} /><p className="recommned_p">{item.bookName}</p> </div>)
+                        } 
+                        </div>
+                        <div>                      
+                        {  
+                            pppdd5.map(item=>  <div className="recommend_img" key={item.bookId} ><img className="imgtttt" onClick={()=>{this.getid(item.bookId)}} key={item.name} style={{width:"100%"}}  src={item.imgUrl} /><p className="recommned_p">{item.bookName}</p> </div>)
+                        } 
+                        </div>
+                        <div>                      
+                        {  
+                            pppdd6.map(item=>  <div className="recommend_img" key={item.bookId} ><img className="imgtttt" onClick={()=>{this.getid(item.bookId)}} key={item.name} style={{width:"100%"}}  src={item.imgUrl} /><p className="recommned_p">{item.bookName}</p> </div>)
+                        } 
+                        </div>
+                    </Carousel>
+                    </div>
+                </div>
+                </div>
 
 
+                   {/*内容支撑  */}
+                   <div className="mafooter"></div>
             </div>
-
-
-
-
-
-
-
-
-
-        )
+           
+           
+          )
     }
 }
 
-export default Home;
+export default Homenv;

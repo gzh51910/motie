@@ -1,46 +1,46 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 module.exports = {
-    entry:'./src/main.js',
-    devServer:{
-        contentBase:path.join(__dirname,'./public'),
-        port:3100
+    entry: './src/main.js',
+    devServer: {
+        contentBase: path.join(__dirname, './public'),
+        port: 31000
     },
-    resolve:{
+    resolve: {
         // 别名
-        alias:{
-            '@':path.join(__dirname,'./src'),
-            '@@':path.join(__dirname,'./src/components'),
-            '~':path.join(__dirname,'./src/pages')
+        alias: {
+            '@': path.join(__dirname, './src'),
+            '@@': path.join(__dirname, './src/components'),
+            '~': path.join(__dirname, './src/pages')
         }
     },
-    module:{
-        rules:[
+    module: {
+        rules: [
             // js加载器
             {
-                test:/\.jsx?$/,
-                use:[{
-                    loader:'babel-loader',
+                test: /\.jsx?$/,
+                use: [{
+                    loader: 'babel-loader',
                     // options:{
                     //     presets:['@babel/preset-react'],
                     //     plugins:[
                     //         ['@babel/proposal-decorators',{legacy: true}],
                     //         ['@babel/proposal-class-properties',{loose: true}],
-                                // ["import",{
-                                //     "libraryName": "antd",
-                                //     "libraryDirectory": "es",
-                                //     "style": "css" // `style: true` 会加载 less 文件
-                                // }]
+                    // ["import",{
+                    //     "libraryName": "antd",
+                    //     "libraryDirectory": "es",
+                    //     "style": "css" // `style: true` 会加载 less 文件
+                    // }]
                     //     ]
                     // }
                 }],
-                include:path.join(__dirname,'./src')
+                include: path.join(__dirname, './src')
             },
 
             // css加载器
             {
-                test:/\.css$/,
-                use:['style-loader','css-loader'],
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
                 // include:path.join(__dirname,'./src')
             },
 
@@ -49,14 +49,29 @@ module.exports = {
                 test:/\.scss$/,
                 use:['style-loader','css-loader','sass-loader'],
                 include:path.join(__dirname,'./src')
+            },
+
+            {
+                // 正则匹配所有以.png,jpg,gif结尾的文件
+                test: /\.(png|jpg|gif)$/,
+                // 使用url-loader对图片进行处理
+                use: [
+                    {
+                        loader: 'url-loader',
+                        // 将小于8K的图片以base64的形式打包到js文件中
+                        options: {
+                            limit: 8192
+                        }
+                    }
+                ]
             }
         ]
     },
 
     // 插件
-    plugins:[
+    plugins: [
         new HtmlWebpackPlugin({
-            template:'./public/index.html'
+            template: './public/index.html'
         })
     ]
 }

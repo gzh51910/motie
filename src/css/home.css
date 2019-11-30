@@ -1,0 +1,252 @@
+.mt_head{
+    width: 100%;
+    height: auto;
+}
+#head_top{
+    width: 100%;
+    height: 10vw;
+}
+.mt_logo img{
+    padding: 2vw;
+    width: 100%;
+    height: 100%;
+}
+.mt_logo{
+    float: left;
+    width: 30%;
+    height: 12vw;
+    margin-top: 1vw;
+}
+article, aside, b, body, button, dd, div, dl, dt, figcaption, figure, footer, h1, h2, h3, h4, h5, h6, header, i, input, li, nav, p, section, select, span, textarea, ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-style: normal;
+    text-decoration: none;
+    border: none;
+}
+.mt_nav{
+
+    width: 50%;
+    float: left;
+}
+.mt_nav li {
+    width: 33%;
+    padding: 1vw;
+    line-height: 10vw;
+    float: left;
+}
+span{
+    float: left;
+    line-height: 12vw;
+    margin-left: 2vw;
+}
+.hightline_top a{
+    border-bottom:1vw red solid;
+    
+}
+a{
+    color: #999;
+}
+.slick-list{
+    width: 100%
+}
+.slick-list img{
+    height: 100%;
+    width: 100%;
+}
+.ant-carousel .slick-slide {
+    text-align: center;
+    height: 160px;
+    line-height: 160px;
+    background: #364d79;
+    overflow: hidden;
+  }
+  
+  .ant-carousel .slick-slide h3 {
+    color: #fff;
+  }
+  .ant-carousel .slick-slide img {
+    display: block;
+    height: 160px;
+}
+.slick-list img {
+    height: 160px;
+    width: 100%;
+}
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+.lvl{
+    width: 100%;
+    height: 18vw;
+    text-align: center;
+    line-height: 18vw;
+}
+.ant-menu-item{
+    color: deeppink;
+}
+.recommned{
+    width: 100%;
+    height: 60vw;
+ 
+    margin-top: 2vw;
+}
+.recommned_top{
+    width: 90%;
+    height: 6vw;
+    line-height: 6vw;
+    margin-left: 4vw;
+    font-size: 4vw;
+    color: red;
+}
+.Collection_name_top{
+    width: 90%;
+    height: 6vw;
+    line-height: 6vw;
+    margin-left: 4vw;
+    font-size: 4vw;
+    color:#999;
+}
+.recommend_img{
+    width: 30%;
+    margin-left: 2%;
+    height: 48vw;
+    float: left;
+}
+.recommned_p{
+    width: 100%;
+    height: 8vw;
+    line-height: 8vw;
+    text-align: center;
+    font-size: 10px;
+}
+.maincategory{
+    width: 100%;
+    height: 100vw;
+    margin-top: 2vw;
+}
+.maincategory_top{
+    width: 90%;
+    height: 6vw;
+    line-height: 6vw;
+    margin-left: 4vw;
+    font-size: 4vw;
+}
+.maincategory_img{
+    width: 100%;
+    height: 30vw;
+    margin-top: 1vw;
+    background: #fef6fe
+}
+
+.maincategory_imgone{
+    width: 26%;
+    height: 100%;
+    padding: 1vw; 
+     float: left;
+}
+.maincategory_neirong{
+    width: 65%;
+    height: 100%;
+    margin-left: 2%;
+    float: left;
+}
+.maincategory_top_name{
+    width: 100%;
+    height: 7vw;
+    font-size: 5vw;
+    line-height: 7vw;
+}
+.maincategory_top_nneirong{
+    width: 100%;
+    height: 13vw;
+    font-size: 4vw;
+    color: #999;
+    overflow: hidden;
+    margin-top: 1vw;
+}
+.maincategory_foot{
+    width: 100%;
+    height: 8vw;
+    margin-top: 1vw;
+
+
+}
+.img_head{
+    width: 6vw;
+    height: 6vw;
+    padding: 1vw;
+    float: left;
+    margin-top: 1vw;
+}
+.zuozhe{
+    width: 30%;
+    height: 8vw;
+    font-size: 4vw;
+    line-height: 8vw;
+    margin-left: 2vw;
+    float: left;
+
+}
+.booksname{
+    width: 30%;
+    float: right;
+    height: 8vw;
+    font-size: 4vw;
+    line-height: 8vw;
+}
+.mafooter{
+    width: 100%;
+    height: 16vw;
+}
+.moer{
+    width: 100%;
+    height: 10vw;
+    text-align: center;
+    line-height: 10vw;
+    color: red;
+    border: 1px #feeae3 solid; 
+}
+.recommned1{
+    width: 100%;
+    height: 110vw;
+    margin-top: 2vw;
+
+}
+.gd{
+    height: 110vw !important;
+}
+.pp{
+    margin-top: 1vw !important;
+}
+.ppnp{
+    margin-left: 3vw; 
+}
+.imgtttt{
+    height:137px !important;
+}
+.ant-carousel .slick-slide{
+    background: white !important;
+}
+.lunbo11 ul{
+    position: absolute;
+    right: -36vw;
+    top: -4vw;
+}
+.lunbo11 button{
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50% !important;
+    background: red !important;
+}
+.fllow{
+    overflow: hidden;
+}
+.recommned_p{
+    overflow: hidden;
+}
+.recommend_img84{
+    height: 84%;
+}

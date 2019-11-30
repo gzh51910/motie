@@ -35,6 +35,9 @@ i,em{
     top: 3.6vw;
     left: 4vw;
 }
+.ListMenuPull{
+    font-size: 4vw;
+}
 .ListMenuHeader h2{
     /* display: inline; */
     font-size: 6vw;
@@ -70,7 +73,7 @@ i,em{
 }
 
 /* 分类菜单点击 */
-.ListMenuIcon-Active{
+.ListMenuChannel-R .ListMenuIcon-Active{
     display: block;
     color: #ee5048;
     border: 1px solid #ee5048;

@@ -1,10 +1,13 @@
 import React,{Component} from 'react';
 
 class Reg extends Component{
+    state = {
+       
+    }
     render(){
         return (
             <div>
-                Reg
+                123
             </div>
         )
     }
