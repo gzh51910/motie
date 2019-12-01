@@ -2,7 +2,10 @@ import React,{Component} from 'react';
 import {nsg,my} from '@/api';
 import '../css/home.css';
 import {Carousel,Icon,Menu,SubMenu,Badge} from 'antd'
-
+import FooterQr from '@@/FooterQr';
+import FooterPart from '@@/FooterPart';
+import '../css/FooterQr.css';
+import '@/css/FooterPart.css'
 
 class Homecb extends Component{
     constructor(prop){
@@ -46,8 +49,8 @@ class Homecb extends Component{
         let Collection_name = main[5]
         let six  = main[6].dataSourceList[0].dataList
         let six_name = main[6]
-        // let Finishedboutique = main[7]
-        // let Finishedboutique_main =main[7].dataSourceList[0].dataList
+        let Finishedboutique = main[7]
+        let Finishedboutique_main =main[7].dataSourceList[0].dataList
         let WEATHERVANE  = main[8].dataSourceList[0].dataList
         let WEATHERVANE_name = main[8]
         let NEWbook = main[9]
@@ -69,8 +72,8 @@ class Homecb extends Component{
                 Collection_name,
                 six,
                 six_name,
-                // Finishedboutique,
-                // Finishedboutique_main,
+                Finishedboutique,
+                Finishedboutique_main,
                 WEATHERVANE,
                 WEATHERVANE_name,
                 NEWbook,
@@ -83,6 +86,7 @@ class Homecb extends Component{
     getid = (id) =>{
       
         console.log("id:",id);
+        this.props.history.push(`/detail?book=${id}`)
         
         
     }
@@ -123,7 +127,7 @@ class Homecb extends Component{
         let app8 = foundit.slice(3,6);
         let app9 = foundit.slice(6,9);
         console.log(main,"++++++");
-        console.log(NEWbook_main,foundit,"++++");
+        console.log(Finishedboutique_main,Finishedboutique,"++++");
         //.dataSourceList[0].dataList
         
       
@@ -150,13 +154,14 @@ class Homecb extends Component{
                             <li><a>女生</a></li>
                             <li><a>出版</a></li> */}
                         </ul>
-                        <span><Icon type="search" /></span>
-                        <span>&nbsp;<Icon type="menu-unfold" /></span>
+                        <span className='spannn'><Icon type="search" /></span>
+                        <span className='spannn'>&nbsp;<Icon type="menu-unfold" /></span>
                         <div></div>
                         <div></div>
                     </header>     
                 </section>
                 </div>
+                
             {/* 轮播 */}
             <Carousel autoplay>
                 {  
@@ -164,12 +169,13 @@ class Homecb extends Component{
                 }
             </Carousel>
             </div>
-          
+            <div className='zhicheng'></div>
                 {/* 浏览记录 */}
                 <div className="lvl">
                         浏览记录
                     </div>
             </div>
+            <div className='zhicheng'></div>
              {/* 主编力荐 */}
              <div>
              <div className="recommned">
@@ -180,6 +186,7 @@ class Homecb extends Component{
                      }
              </div>
              </div>
+             <div className='zhicheng'></div>
              {/* 重磅推荐 */}
              <div>
              <div className="recommned">
@@ -191,7 +198,7 @@ class Homecb extends Component{
              </div>
              </div>
 
-
+             <div className='zhicheng'></div>
 
                 {/* 文学小说 */}
 
@@ -202,7 +209,7 @@ class Homecb extends Component{
                         }
                 </div>
                 <div className="moer" onClick={()=>{this.getid(Collection_name.id)}} >查看更多</div>
-
+                <div className='zhicheng'></div>
                 {/* 一周畅销榜 */}
 
                 <div className="fllow">
@@ -229,8 +236,21 @@ class Homecb extends Component{
                     </div>
                 </div>
                 </div>
-
+                <div className='zhicheng'></div>
      
+                {/* 独家好书 */}
+
+                <div>
+                <div className="recommned">
+                    <div className='recommned_top' title={recommend_name.bookName}><Icon type="like" />{Finishedboutique.name}</div>
+                        {  
+                            Finishedboutique_main.map(item=>  <div className="recommend_img dpdpdpdpdd" key={item.bookId} >
+                                <img className="recommend_img84" onClick={()=>{this.getid(item.bookId)}} key={item.name} style={{width:"100%"}}  src={item.imgUrl} /><p className="recommned_p">{item.bookName}</p> </div>)
+                        }
+                </div>
+                </div>
+
+                <div className='zhicheng'></div>
                 {/* 影视原著 */}
 
                 <div className="recommned gd">
@@ -241,7 +261,7 @@ class Homecb extends Component{
                 </div>
                 <div className="moer" onClick={()=>{this.getid(Collection_name.id)}} >查看更多</div>
 
-
+                <div className='zhicheng'></div>
 
 
             {/* 生活社区 */}
@@ -270,6 +290,7 @@ class Homecb extends Component{
                     </div>
                 </div>
                 </div>
+                <div className='zhicheng'></div>
                 {/* 经营励志 */}
 
                 <div className="fllow">
@@ -296,9 +317,11 @@ class Homecb extends Component{
                     </div>
                 </div>
                 </div>
+                <div className='zhicheng'></div>
 
-
-
+                {/* foot */}
+                <FooterPart/>
+                <FooterQr/>
 
                 {/*内容支撑  */}
                 <div className="mafooter"></div>

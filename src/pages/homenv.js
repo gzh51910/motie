@@ -1,6 +1,10 @@
 import React,{Component} from 'react';
 import {nsg,my} from '@/api';
 import '../css/home.css';
+import FooterQr from '@@/FooterQr';
+import FooterPart from '@@/FooterPart';
+import '../css/FooterQr.css';
+import '@/css/FooterPart.css'
 import {Carousel,Icon,Menu,SubMenu,Badge, Divider} from 'antd'
 
 
@@ -77,6 +81,7 @@ class Homenv extends Component{
     getid = (id) =>{
       
         console.log("id:",id);
+        this.props.history.push(`/detail?book=${id}`)
         
         
     }
@@ -105,7 +110,7 @@ class Homenv extends Component{
         Finishedboutique_main,WEATHERVANE,WEATHERVANE_name, NEWbook, NEWbook_main,foundit,foundit_name} = this.state
       
         // console.log(main,"++++++");
-        // console.log(maincategory,"++++");
+        console.log(NEWbook,NEWbook_main,"++++");
         let app = recommend.slice(0,3);
         let app2 = recommend.slice(3,7);
         let pppdd1 = maincategory_main.slice(0,3);
@@ -114,6 +119,10 @@ class Homenv extends Component{
         let pppdd4 = maincategory_main.slice(9,12);
         let pppdd5 = maincategory_main.slice(12,15);
         let pppdd6 = maincategory_main.slice(15,18);
+        let newbook = NEWbook_main.slice(0,1);
+        let newbook2 = NEWbook_main.slice(1,5);
+        console.log(newbook2);
+        
         // //.dataSourceList[0].dataList
     
     //   console.log(pppdd1,pppdd2,pppdd3,pppdd4,pppdd5,pppdd6);
@@ -143,8 +152,8 @@ class Homenv extends Component{
                                 <li><a>女生</a></li>
                                 <li><a>出版</a></li> */}
                             </ul>
-                            <span><Icon type="search" /></span>
-                            <span>&nbsp;<Icon type="menu-unfold" /></span>
+                            <span className='spannn'><Icon type="search" /></span>
+                            <span  className='spannn'>&nbsp;<Icon type="menu-unfold" /></span>
                             <div></div>
                             <div></div>
                         </header>     
@@ -157,10 +166,12 @@ class Homenv extends Component{
                     banner.map(item=>   <div key={item.name} ><img key={item.name}  src={item.imgUrl} /> </div>)
                 }
                 </Carousel>
+                <div className='zhicheng'></div>
                 {/* 浏览记录 */}
                 <div className="lvl">
                         浏览记录
                     </div>
+                    <div className='zhicheng'></div>
                 {/* 分类列表 */}
                 <Menu
                     mode="horizontal"
@@ -178,6 +189,7 @@ class Homenv extends Component{
                         })
                     }
                 </Menu>
+                <div className='zhicheng'></div>
                 {/* 主编力荐 */}
                 <div className="fllow">
                 <div className="recommned fllow">
@@ -198,7 +210,7 @@ class Homenv extends Component{
                     </div>
                 </div>
                 </div>
-
+                <div className='zhicheng'></div>
 
                 {/* 私人定制 */}
 
@@ -209,7 +221,7 @@ class Homenv extends Component{
                         }
                 </div>
                 <div className="moer" onClick={()=>{this.getid(Collection_name.id)}} >查看更多</div>
-
+                <div className='zhicheng'></div>
                 
                 {/* 完本精品 */}
                 
@@ -221,6 +233,7 @@ class Homenv extends Component{
 
                 </div>
                 <div className="moer">查看更多</div>
+                <div className='zhicheng'></div>
                 {/* 无线风向标 */}
                 
                 <div className="recommned">
@@ -230,10 +243,31 @@ class Homenv extends Component{
                         }
                 </div>
                 <div className="moer">查看更多</div>
+                <div className='zhicheng'></div>
+
+                {/* 新书抢先看 */}
+                <div className="maincategory">
+                    <div className='maincategory_top' title={recommend_name.bookName}><Icon type="like" />{NEWbook.name}</div>
+                    {  
+                newbook.map(item=>  <div className="maincategory_img" key={item.bookId} ><img  onClick={()=>{this.getid(item.bookId)}} key={item.name} className="maincategory_imgone"  src={item.imgUrl} /><div className="maincategory_neirong"><p className="maincategory_top_name">{item.bookName}</p><p className="maincategory_top_nneirong">{item.introduction}</p><div className="maincategory_foot"><img className="img_head" src={item.userImgUrl}></img><p className="zuozhe">{item.cpName}</p><p className="booksname">{item.category}</p></div></div></div>)  
+                    }
+                    {
+                        newbook2.map(item =><div className="newbook2">
+                            <div className="newbook2_d">{item.bookName}</div>
+                            <p className="newbook2_p">{item.category}</p>
+                        </div>)
+                    }
+                    
+
+                </div>
+                <div className="moer">查看更多</div>
+
+
+                <div className='zhicheng'></div>
                  {/* 发现好书 */}
                  <div className="fllow">
                 <div className="recommned fllow">
-                    <div className='recommned_top' title={recommend_name.bookName}><Icon type="like" />{maincategory_main.name}</div>
+                    <div className='recommned_top' title={recommend_name.bookName}><Icon type="like" />{maincategory.name}</div>
                    <div className="lunbo11">
                     <Carousel autoplay>
                         <div>
@@ -271,6 +305,9 @@ class Homenv extends Component{
                 </div>
                 </div>
 
+                {/* foot */}
+                <FooterPart/>
+                <FooterQr/>
 
                    {/*内容支撑  */}
                    <div className="mafooter"></div>

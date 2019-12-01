@@ -116,6 +116,7 @@
 }
 .introlist{
     display: flex;
+    padding-top: 2vw;
     flex-direction: row;
     justify-content: space-between;
 }

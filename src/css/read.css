@@ -1,0 +1,51 @@
+.readtop{
+    text-align: center;
+    line-height: 12vw;
+    font-size: 5vw;
+    border-bottom: 1px solid #ccc;
+}
+.readback{
+    float: left;
+    font-size: 6vw;
+    margin-top: 3vw;
+    margin-left: 3vw;
+    color: #ccc
+}
+.readtools{
+    text-align:right;
+    padding:5vw 5vw
+
+}
+.readtools span{
+    padding: 3vw;
+    margin-left:4vw;
+    border:1px #ccc solid;
+    color: #ccc
+}
+.readtools span:nth-last-of-type(1){
+    border:1px darkgoldenrod solid;
+    color: darkgoldenrod
+}
+.bookshow{
+    padding:3vw;
+}
+.turnpage{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10vw 0 20vw 0;
+}
+.turnpage span{
+    width: 30%;
+    text-align: center;
+    font-size: 5vw;
+    line-height: 10vw;
+    border: 1px solid #ccc;
+    border-radius:2vw;
+    color: #ccc;
+}
+.turnpage span:nth-last-of-type(1){
+    color: red;
+    border: 1px solid red;
+
+}
