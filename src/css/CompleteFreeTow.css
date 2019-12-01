@@ -1,0 +1,29 @@
+.CompeletFreeTow {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.CompeletFreeTow .book-tow-title {
+    width: 100%;
+    padding: 3vw 4vw 0;
+    height: 10vw;
+    /* margin-bottom: 3vw; */
+}
+
+.CompeletFreeTow .book-tow-title span {
+    display: block;
+    float: left;
+    margin-top: 1vw;
+    margin-right: 2vw;
+    width: 1vw;
+    height: 4vw;
+    background: #ee5048;
+}
+
+.CompeletFreeTow .book-tow-title h4 {
+    float: left;
+    font-size: 4vw;
+}
+.CompeletFreeTow {
+    border-top: 2.4vw solid #f5f5f5;
+}

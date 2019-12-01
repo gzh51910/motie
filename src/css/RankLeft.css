@@ -1,5 +1,5 @@
 #rank-left {
-    padding-top: 12vw!important;
+    padding-top: 11vw!important;
     margin-bottom: 12vw;
 }
 #rank-left .ant-tabs-nav-wrap {
@@ -33,4 +33,13 @@
 }
 .ant-tabs-ink-bar{
     background-color: rgba(255, 255, 255, 0);
+}
+
+/* img定位 */
+.rank-background-img{
+    position: absolute;
+    right: 0;
+    display: block;
+    width: 12vw;
+    height: 18vw;
 }

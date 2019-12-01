@@ -6,6 +6,15 @@
     width: 100%;
     height: 10vw;
 }
+#head_top:after{
+    content: "";
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    width: 2px;
+    background: red;
+    visibility: hidden;
+}
 .mt_logo img{
     padding: 2vw;
     width: 100%;
@@ -36,11 +45,18 @@ article, aside, b, body, button, dd, div, dl, dt, figcaption, figure, footer, h1
     line-height: 10vw;
     float: left;
 }
-.mt_head span .spannn{
+.mt_head .spannn{
     float: left;
     line-height: 12vw;
     margin-left: 2vw;
+    
+    color:red
 }
+.mt_head .spannn i{
+    font-size:5vw;
+}
+
+
 .hightline_top a{
     border-bottom:1vw red solid;
     

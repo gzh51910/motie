@@ -15,13 +15,14 @@ import List from '~/List';
 import Rank from '~/Rank'
 import Invest from '~/Invest';
 import {connect} from 'react-redux';
-import {nsg,my} from './api'
+import {nsg,my} from './api';
 import homenv from '~/homenv';
 import homecb from '~/homecb';
 import Inf from '~/Inf';
 import Read from './pages/Read';
 import Foundmore from '~/Foundmore';
-
+import AllBooks from './pages/AllBooks';
+import Free from './pages/Free';
 class App extends Component {
   
     state = {
@@ -49,7 +50,8 @@ class App extends Component {
                 <Route path="/rank" component={Rank} />
                 <Route path="/read" component={Read} />
                 <Route path="/Foundmore" component={Foundmore} />
-                
+                <Route path="/allbooks" component={AllBooks} />
+                <Route path="/free" component={Free}/>
                 <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal" className="nav">
                     
                     <Menu.Item key="book">
