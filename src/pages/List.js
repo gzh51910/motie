@@ -4,6 +4,7 @@ import {Tabs,Icon} from 'antd';
 import GetList from '@/components/GetList';
 import GetListMenu from '@/components/GetListMenu';
 import '../css/List.css';
+import '../css/GetList1.css';
 
 class List extends Component{
     state = {
@@ -63,6 +64,7 @@ class List extends Component{
                                     style={{height:(idx==1 && this.state.down)?"9vw":"auto",overflow:"hidden"}}
                                 >
                                     <span className="ListMenuChannel-L">{item.title}</span>
+                                    {/* 菜单列表 */}
                                     <GetListMenu item={item}/>
                                     {//item.classify.map((ele,index)=>{
                                         //return <GetListMenu item={item}/>

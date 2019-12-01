@@ -36,7 +36,7 @@ article, aside, b, body, button, dd, div, dl, dt, figcaption, figure, footer, h1
     line-height: 10vw;
     float: left;
 }
-span{
+.mt_head span{
     float: left;
     line-height: 12vw;
     margin-left: 2vw;

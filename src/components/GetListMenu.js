@@ -1,6 +1,6 @@
 import React from 'react';
-import { func } from 'prop-types';
-import '../css/List.css';
+// import { func } from 'prop-types';
+// import '../css/GetList.css';
 
 class GetListMenu extends React.Component {
     state={
@@ -16,6 +16,7 @@ class GetListMenu extends React.Component {
     render(){
         let {item}=this.props;
         return (
+            // 菜单列表
             item.classify.map((ele,index)=>{
                 return <span className="ListMenuChannel-R" key={index+"i"} >
                 {/* 调用changeactive（） */}

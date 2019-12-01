@@ -1,3 +1,4 @@
+
 #rank-top .ant-tabs-nav .ant-tabs-ink-bar{
     width: 20vw;
 }
@@ -26,7 +27,16 @@
     color: #ee5048;
 }
 #rank-top .ant-tabs-ink-bar {
-    background-color: #ee5048;
-    border-bottom: 3px;
+    background-color: #888282;
+    border-bottom: 3px solid #ee5048;
     transform: translate3d(10px, 0px, 0px);
+}
+
+/* 定位 */
+#rank-top{
+    position: fixed;
+    top: 0vw;
+    left:0;
+    background-color: #fff;
+    z-index: 10;
 }

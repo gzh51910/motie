@@ -3,7 +3,8 @@ import {my} from '@/api';
 import {Tabs} from 'antd';
 import GetList from '@@/GetList';
 import '../css/RankLeft.css';
-import '../css/List.css'
+import '../css/GetList1.css';
+import '../css/List.css';
 class RankLeft extends Component{
     state={
         leftdata:["热销榜","点击榜","打赏榜","推荐榜","新书榜","更新榜","热度榜","财神榜","书评榜"],
@@ -36,14 +37,23 @@ class RankLeft extends Component{
                             <Tabs.TabPane tab={item} key={idx}>
                                 {
                                     datalist.map((ele,index)=>{
-                                        return <GetList item={ele} key={index+"x"}/>
+                                        return (
+                                            <div className="ListContents RankList" key={index+"x"}>
+                                                <ul className="ListClear">
+                                                    <GetList item={ele} />
+                                                </ul>
+                                            </div>
+                                            
+                                        )
+                                        
                                     })
+                                    
+                                    
+                                    // <GetList item={datalist} />
                                 }
-                            
-                                
                             </Tabs.TabPane>
                         ))
-                        }
+                        } 
                 </Tabs>
             </div>
         )
