@@ -85,7 +85,7 @@ class Homecb extends Component{
     }
     getid = (id) =>{
       
-        console.log("id:",id);
+   
         this.props.history.push(`/detail?book=${id}`)
         
         
