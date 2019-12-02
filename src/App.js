@@ -19,6 +19,8 @@ import {nsg,my} from './api'
 import homenv from '~/homenv';
 import homecb from '~/homecb';
 import Inf from '~/Inf';
+import Chongzhi from '~/chongzhi';
+import Xiaofei from '~/xiaofei';
 
 class App extends Component {
   
@@ -35,6 +37,8 @@ class App extends Component {
                 <Route path="/" component={Home} exact/>
                 <Route path="Home" component={Home} exact/>
                 <Route path="/mine" component={Mine} />
+                <Route path="/chongzhi" component={Chongzhi} />
+                <Route path="/xiaofei" component={Xiaofei} />
                 <Route path="/Inf" component={Inf} />
                 <Route path="/Invest" component={Invest} />
                 <Route path="/Login" component={Login} />

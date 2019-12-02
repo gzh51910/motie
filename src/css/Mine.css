@@ -1,0 +1,144 @@
+.my-body {
+  padding-bottom: 10%;
+  background: #f6f6f6;
+}
+
+.my-body .my-title {
+  position: relative;
+  height: 32vw;
+  overflow: hidden;
+  background-image: url(https://pic.motieimg.com/web-wechat/dist/static/img/i-cover.0a73f86.jpg);
+  background-size: cover;
+}
+
+.my-body .my-title dl {
+  width: 100%;
+  position: absolute;
+  top: 6.7vw;
+  left: 4.9vw;
+  color: #333;
+  display: flex;
+}
+
+.my-body .my-title dl .left img {
+  width: 18.6vw;
+  height: 18.5vw;
+}
+
+.my-body .my-title dl .right {
+  margin-left: 3.4vw;
+  margin-top: 5.6667vw;
+  display: flex;
+  width: 100%;
+}
+
+.my-body .my-title dl .right span {
+  font-size: 3.8vw;
+}
+
+.my-body .my-title dl .right span p {
+  font-size: 2.8vw;
+}
+
+.my-body .my-title dl .right .my-go-right {
+  margin-left: 39.6667vw;
+  font-size: 5.6667vw;
+}
+
+.my-body .my-account {
+  height: 48.6667vw;
+  background: white;
+  border-top: 1px solid #e3e0d9;
+  padding: 4vw 4vw 4vw 4vw;
+}
+
+.my-body .my-account .icon {
+  font-size: 5.6667vw;
+}
+
+.my-body .my-account span {
+  font-size: 4.2vw;
+  margin-left: 3.6667vw;
+  color: #333;
+}
+
+.my-body .my-account ul {
+  display: flex;
+  list-style: none;
+  height: 40%;
+  padding: 8vw 0 0 0;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.my-body .my-account ul li {
+  text-align: center;
+  flex: 1;
+}
+
+.my-body .my-account ul li span {
+  color: #333;
+  font-size: 4.5vw;
+  text-align: center;
+  margin: 0;
+}
+
+.my-body .my-account ul li p {
+  padding-top: 1vw;
+  font-size: 3.9vw;
+  color: #999;
+}
+
+.my-body .my-main {
+  height: 100vw;
+  background: white;
+  margin-top: 3.6667vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.my-body .my-main .my-t1 {
+  font-size: 4vw;
+  color: #333;
+  padding-left: 4vw;
+}
+
+.my-body .my-main .my-t1 span {
+  padding-right: 63vw;
+  font-size: 4vw;
+}
+
+.my-body .my-main .my-t1 .icon {
+  font-size: 6vw;
+  padding-right: 3vw;
+}
+
+.my-body .my-end {
+  height: 15.6667vw;
+  background: white;
+  line-height: 14vw;
+  margin-top: 3vw;
+}
+
+.my-body .my-end p {
+  text-align: center;
+  font-size: 4vw;
+  color: #c29b61;
+}
+
+.my-body .my-account-end {
+  padding-top: 2vw;
+  height: 100%;
+}
+
+.my-body .my-account-end .my-btn {
+  height: 11.5vw;
+  color: #fff;
+  font-size: 4.2vw;
+  line-height: 11.5vw;
+  text-align: center;
+  background-color: #ee5048;
+  border-radius: .59rem;
+  margin-top: 3.5vw;
+}
