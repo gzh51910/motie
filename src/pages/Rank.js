@@ -4,16 +4,18 @@ import FooterQr from '@@/FooterQr';
 import RankTop from '@@/RankTop';
 import RankLeft from '@@/RankLeft';
 
-
 class Rank extends Component{
-
     render(){
         return (
+            
             <div>
                 <RankTop/>
                 <RankLeft/>
-                <FooterPart/>
-                <FooterQr/>
+                <div className="rank-background-img">
+                  
+                </div>
+                {/* <FooterPart/>
+                <FooterQr/> */}
             </div>
         )
     }

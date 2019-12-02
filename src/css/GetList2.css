@@ -1,0 +1,92 @@
+/* 列表内容 */
+.ListContents{
+    width: 100%;
+    padding: 0 4vw;
+    /* margin-bottom: 12vw; */
+}
+.ListContents li{
+    float: left;
+    padding:0 4.4vw;
+    border-bottom: 1px solid #e5e5df;
+}
+.ListContents ul li:nth-last-of-type(1){
+    border-bottom: none;
+}
+/* l */
+.ListContents li figure{
+    float: left;
+}
+.ListContents li figure img{
+    display: block;
+    width: 22.8vw;
+    height: 33vw;
+    border-radius: 1.6vw;
+}
+/* r */
+.ListContents li figcaption{
+    width: 68vw;
+    height: 33vw;
+    padding: 0 2vw;
+    float: left;
+}
+.ListContents li figcaption h4{
+    font-size: 4vw;
+    color: #333;
+    padding-bottom: 2.4vw;
+}
+.ListContents .ListContents-Des{
+    height: 12.8vw;
+    line-height: 6vw;
+    font-size: 4vw;
+    color: #999;
+    margin-bottom: 3vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-overflow: -o-ellipsis-lastline;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+/* Msg */
+.ListContents .ListContents-MSg{
+    color: #bbb;
+    font-size: 3.6vw;
+}
+.ListContents .ListContents-MSg .MSg-L{
+    font-size: 3.6vw;    float: left;
+}
+.ListContents .ListContents-MSg img{
+    margin:0.6vw 2vw 0 0;
+    float: left;
+    display: inline-block;
+    width: 4.6vw;
+    height: 4.6vw;
+}
+.ListContents .ListContents-MSg .MSg-R{
+    height: 5.2vw;
+    padding: 0 0.6vw;
+    margin-right: 1vw;
+    margin-top: 0.6vw;
+    text-align: center;
+    line-height: 3.8vw;
+    float: right;
+    border: 1px solid #e5e5df;
+    border-radius: 0.8vw;
+}
+
+
+/* GetList */
+.ant-tabs .ant-tabs-left-content {
+    padding-left: 0vw!important;
+    border-left: 0px!important;
+}
+
+
+#rank-left .ListContents {
+    width: 100%;
+    padding: 0 2vw 4.4vw!important;
+    margin-bottom: 0;
+}
+#rank-left .ListContents li figcaption{
+    width:53vw;
+}

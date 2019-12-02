@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import {Icon,Button,Radio,Divider} from 'antd';
 import { Route, Redirect, Switch, Link, NavLink, withRouter } from 'react-router-dom';
 import Login from '~/Login';
+import '../css/Mine.css'
 
 
 class Mine extends Component{
@@ -68,6 +69,7 @@ class Mine extends Component{
                 </div>
                 </div>
                 <div className = 'my-main'>
+                <Link to="/chongzhi">
                     <div className = "my-t1">
                     <Icon type="money-collect" theme="twoTone" className ="icon" twoToneColor="#FF3333"/>
                         <span>
@@ -75,6 +77,8 @@ class Mine extends Component{
                         </span>
                         <Icon type="right" />
                     </div>
+                    </Link>
+                    <Link to="/xiaofei">
                     <div className = "my-t1">
                     <Icon type="dollar" theme="twoTone" className ="icon" twoToneColor="#FF3333"/>
                         <span>
@@ -82,6 +86,7 @@ class Mine extends Component{
                         </span>
                         <Icon type="right" />
                     </div>
+                    </Link>
                     <div className = "my-t1">
                     <Icon type="video-camera" theme="twoTone" className ="icon" twoToneColor="#FF3333"/>
                         <span>

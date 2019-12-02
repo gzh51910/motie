@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import '../App.scss';
+import '../css/Log.css';
 import ReactDOM from 'react-dom';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 
