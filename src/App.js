@@ -23,6 +23,9 @@ import Read from './pages/Read';
 import Foundmore from '~/Foundmore';
 import AllBooks from './pages/AllBooks';
 import Free from './pages/Free';
+import Chongzhi from '~/chongzhi';
+import Xiaofei from '~/xiaofei';
+
 class App extends Component {
   
     state = {
@@ -38,6 +41,8 @@ class App extends Component {
                 <Route path="/" component={Home} exact/>
                 <Route path="Home" component={Home} exact/>
                 <Route path="/mine" component={Mine} />
+                <Route path="/chongzhi" component={Chongzhi} />
+                <Route path="/xiaofei" component={Xiaofei} />
                 <Route path="/Inf" component={Inf} />
                 <Route path="/Invest" component={Invest} />
                 <Route path="/Login" component={Login} />
