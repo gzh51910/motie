@@ -43,3 +43,21 @@
     width: 12vw;
     height: 18vw;
 }
+/* 没有书背景图 */
+.noBooks-img{
+    width: 36vw;
+    height: 30vw;
+    position: absolute;
+    left:36%;
+    top:36%;
+    text-align: center;
+    color: #999;
+    font-size: 4vw;
+    z-index: 990;
+}
+.noBooks-img img{
+    margin: 0 auto;
+    display: block;
+    width: 28vw;
+    height: 20vw;
+}

@@ -26,6 +26,10 @@ import Free from './pages/Free';
 import Chongzhi from '~/chongzhi';
 import Xiaofei from '~/xiaofei';
 import sou from '~/sou';
+import Dingyue from '~/dingyue';
+import Huodong from '~/huodong';
+import Mydu from '~/mydu';
+
 
 class App extends Component {
   
@@ -42,8 +46,12 @@ class App extends Component {
                 <Route path="/" component={Home} exact/>
                 <Route path="Home" component={Home} exact/>
                 <Route path="/mine" component={Mine} />
+                <Route path="/Reg" component={Reg} />
+                <Route path="/mydu" component={Mydu} />
                 <Route path="/chongzhi" component={Chongzhi} />
                 <Route path="/xiaofei" component={Xiaofei} />
+                <Route path="/dingyue" component={Dingyue} />
+                <Route path="/huodong" component={Huodong} />
                 <Route path="/Inf" component={Inf} />
                 <Route path="/Invest" component={Invest} />
                 <Route path="/Login" component={Login} />
@@ -74,7 +82,7 @@ class App extends Component {
                         </Link>
                     </Menu.Item>
                     <Menu.Item key="user">
-                        <Link to="/mine">
+                        <Link to="/Login">
                             <Icon type="user" />
                             我的
                         </Link>

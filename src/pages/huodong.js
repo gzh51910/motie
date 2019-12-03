@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import {nsg} from '@/api';
 import {Icon,Button,Radio,Divider} from 'antd';
 
-class Chongzhi extends Component{
+class Huodong extends Component{
     state = {
        
     }
@@ -15,17 +15,17 @@ class Chongzhi extends Component{
     render(){
        
         return (
-            <div className = 'chong-body'>
-                <div className = 'chong-title'>
+            <div className = 'huo-body'>
+                <div className = 'huo-title'>
                 <a href="#/Mine">
                 <Icon type="left" className = "icon"/>
                 </a>
-                    <span>充值记录</span>  
+                    <span>活动</span>  
                 </div>
-                <div className = 'chong-main'>
+                <div className = 'huo-main'>
                     <p></p>
                     <span>
-                        您暂时没有充值记录(-_-)
+                        您暂时没有活动记录(-_-)
                     </span>
                 </div>
             </div>
@@ -33,4 +33,4 @@ class Chongzhi extends Component{
     }
 }
 
-export default Chongzhi;
+export default Huodong;

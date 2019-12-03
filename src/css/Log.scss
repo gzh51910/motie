@@ -1,4 +1,14 @@
 .log-body {
+    .ant-btn-primary {
+        background-color: #ee5048;
+        border-color:#ee5048;
+    }
+    .ant-input {
+        height: 9vw;
+    }
+    .ant-btn-primary {
+        height: 9vw;
+    }
     .log-title {
         height: 10.5vw;
         background: #fbf9fe;
@@ -8,12 +18,43 @@
         span {
             color: #333;
             font-size: 3.8vw;
-            padding-left: 27vw;
+            padding-left: 34vw;
         }
 
         .icon {
             font-size: 5vw;
             color: #ccc;
+        }
+    }
+    .log-main {
+        padding: 5vw 5vw 0vw 5vw;
+        .ant-form-item-children {
+            ul {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+    .log-end {
+        padding: 0vw 10vw 5vw 10vw;
+        ul {
+            display: flex;
+            justify-content:space-around;
+            font-size: 8vw;
+        }
+        span {
+            text-align: center;
+        }
+        .log-tis {
+            padding-top: 10vw;
+            text-align: center;
+            
+            em {
+                color: #333;
+            }
+            span {
+                color:#b6b6b6;
+            }
         }
     }
 }

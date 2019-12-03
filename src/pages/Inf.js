@@ -10,7 +10,9 @@ class Inf extends Component{
         return (
             <div className = 'Inf-body'>
                 <div className = 'Inf-title'>
+                <a href="#/Mine">
                 <Icon type="left" className = "icon"/>
+                </a>
                     <span>个人资料</span>   
                 </div>
                 <div className = 'Inf-icon'>

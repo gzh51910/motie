@@ -15,7 +15,7 @@ function GetList({item,flag=true}){
                     {flag?item.bookTags.map((ele,idx)=>{
                     return <span className="MSg-R" key={idx}>{ele}</span>
                     }):""} 
-                    {item.category?<span style={{float:"right",border:"1px solid #ccc",color:"#ccc"}}>{item.category}</span>:""}
+                    {item.category?<span style={{float:"right",border:"1px solid #ccc",color:"#ccc",borderRadius:"1vw"}}>{item.category}</span>:""}
                 </p>
             </figcaption> 
         </li>

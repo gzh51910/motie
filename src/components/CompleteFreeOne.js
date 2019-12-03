@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '@/css/CompleteFreeOne.css';
-
+import NoTimeContent from '@@/NoTimeContent';
 class CompleteFreeOne extends Component{
     componentDidMount(){
         console.log(this.props);
@@ -12,8 +12,9 @@ class CompleteFreeOne extends Component{
             <div className="CompleteFreeOne">
                 {/* title */}
                 <div className="Boutique-title">
-                    <span></span>
+                    <span className="title-left"></span>
                         <h4>{title}</h4>
+                        <NoTimeContent/>
                 </div>
                 <div className="Boutique-list">
                     <ul>
@@ -22,6 +23,7 @@ class CompleteFreeOne extends Component{
                                 <img src={item.imgUrl} />
                                 <p>{item.bookName}</p>
                             </li>
+                            
                         })
                         }
                     </ul>

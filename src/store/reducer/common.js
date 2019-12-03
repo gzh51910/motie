@@ -2,22 +2,22 @@ import {LOGIN,LOGOUT} from '../action/common'
 
 // State：初始化数据
 let initialState = {
-    user:{}
+    type:"男"
 }
 
 const reducer = function(state=initialState,{type}){
     
     switch(type){
         // 登录
-        case LOGIN:
+        case "男":
             return {
-                ...state,
+                type:"男",
             }
 
         // 退出
-        case LOGOUT:
+        case "女":
             return {
-                ...state,
+                type:"女"
             }
         default:
             return state;

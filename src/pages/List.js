@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
-import {my} from '@/api'
-import {Tabs,Icon} from 'antd';
+import {my,nsg} from '@/api'
+import {Tabs,Icon, Select} from 'antd';
 import GetList from '@/components/GetList';
 import GetListMenu from '@/components/GetListMenu';
 import '../css/List.css';
@@ -24,30 +24,96 @@ class List extends Component{
         ],
         datalist:[],
         down:true,
+        page:1,
+        show:true
     }
     async componentDidMount(){
         let {data} = await my.get("/sort",{
-           page:1,
+           page:this.state.page,
         })
-    
-        
-
         this.setState({
-            datalist:data
+            datalist:data,
+            page:this.state.page+=1
         })
-      
+        window.onscroll=async ()=>{
+            // 滚动条（滚过）的高度+现显示的页面的高度？=整个页面的高度（一页的高度），请求下一页数据
+            // documentElement== html
+            let h=(document.body.scrollTop || document.documentElement.scrollTop)+window.screen.height;
+            // 判断当前滚动条的高度》300时，显示置顶（）
+            if(h-window.screen.height>300){
+                this.setState({
+                    show:false
+                })
+            }else{
+                this.setState({
+                    show:true
+                })
+            }
+            // list.offsetHeight(最外层元素) == body的高度  ==整个页面总高度
+            if(h+10>=this.refs.list.offsetHeight){
+                // console.log(1111);
+                
+                let {data} = await my.get("/sort",{
+                    page:this.state.page,
+                 })
+                 this.setState({
+                    //  获取（当前的数据+新一页的数据）
+                     datalist:[...this.state.datalist,...data],
+                     page:this.state.page+=1    //下一次发请求的页数
+                 })
+            }
+            
+        }
     }
     menupull=()=>{
         this.setState({
             down:!this.state.down
         })
+    }
+    SelectBook=(e)=>{
+        this.setState({
+            page:1
+        })
+        setTimeout(async ()=>{       
+            let sort=e.target.parentElement.parentElement.parentElement.getElementsByClassName("ListMenuIcon-Active");
+            let channel=sort[0].dataset.index;
+            let classify=sort[1].dataset.index;
+            let condition=sort[2].dataset.index;
+            let price=sort[3].dataset.index;
+            
+            let {data} = await nsg.post(`/category/detail?free=${price}&finish=${condition}&group=${channel*1+1}&sortId=${classify==0?"":1000019+classify*1}&page=${this.state.page}&pageSize=10`,) 
+            console.log(data.data.bookList);
+            
+            this.setState({
+                datalist:data.data.bookList,
+                page:this.state.page+=1
+            })
+        },0)
+
+        //https://app2.motie.com/category/detail?free=0&finish=0&group=2&sortId=&page=1&pageSize=10{
+            //     free:price*1,
+            //     finish:condition*1,
+            //     group:channel*1+1,
+            //     sortId:"",
+            //     page:this.state.page,
+            //     pageSize:10
+            // }
+        //https://app2.motie.com/category/detail?free=0&finish=0&group=2&sortId=&page=1&pageSize=10
         
         
     }
+    shouldComponentUpdate(p,s){
+        // 优化：  判断什么刷新（当前状态props=下一次状态state时不刷新（show和datalist两个同时满足，不刷新），page+1时刷新）
+        // console.log(this.state.show,"=======",s);
+        if(this.state.show==s.show && this.state.datalist === s.datalist && this.state.down == s.down){
+            return false   //不刷新
+        }
+        return true       //刷新
+    }
     render(){ 
-        // let {datalist} = this.state;
+         let {datalist,show} = this.state;
         return (
-            <div id="List">
+            <div id="List" ref="list">
                 {/* 头部菜单 */}
                 <div id="ListMenu">
                     <div className="ListMenuHeader">
@@ -62,6 +128,7 @@ class List extends Component{
                                     className="ListMenuChannel ListClear" 
                                     key={idx} 
                                     style={{height:(idx==1 && this.state.down)?"9vw":"auto",overflow:"hidden"}}
+                                    onClick={(e)=>{e.persist();this.SelectBook(e)}}
                                 >
                                     <span className="ListMenuChannel-L">{item.title}</span>
                                     {/* 菜单列表 */}
@@ -91,9 +158,10 @@ class List extends Component{
                 </div>
                 {/* 列表内容 */}
                 <div className="ListContents">
+
                     <ul className="ListClear">
-                        {this.state.datalist.map((item)=>{
-                        return    <GetList item={item} key={item.id}></GetList>
+                        {datalist.map((item)=>{
+                        return    <GetList item={item} key={item.id+""+Math.random()}></GetList>
                         //     return  <li key={item.id}>
                         //     <figure><img src={item.icon} /></figure>
                         //    <figcaption>
@@ -124,6 +192,8 @@ class List extends Component{
                         </li> */}
                     </ul>
                 </div>
+
+                <Icon type="vertical-align-top" className="top-icon" style={{display:show?"none":"block"}} onClick={()=>{window.scrollTo(0,0)}}/>
             </div>
         )
     }
