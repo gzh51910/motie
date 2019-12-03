@@ -194,7 +194,7 @@ ul {
     transform: translate(0px, 0px); transition: all 0ms ease-in 0s; overflow: hidden; width: 577px;
 }
 .dsadexxf{
-    float: left; overflow: hidden;width: 288px;
+    float: left; overflow: hidden;width: 576px;
 }
 .vux-warp2{
     width: 700px;
@@ -266,4 +266,16 @@ h3 i{
     width: 100% !important;
     height: 30vw !important;
     padding: 2vw !important;
+}
+.divboxaa{
+    width: 24%;
+    height: 100%;
+    padding: 2%;
+    float: left;
+}
+.boxright{
+    width: 60%;
+    float: left;
+    height: 100%;
+    padding: 2%;
 }

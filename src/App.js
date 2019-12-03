@@ -25,6 +25,7 @@ import AllBooks from './pages/AllBooks';
 import Free from './pages/Free';
 import Chongzhi from '~/chongzhi';
 import Xiaofei from '~/xiaofei';
+import sou from '~/sou';
 
 class App extends Component {
   
@@ -57,6 +58,7 @@ class App extends Component {
                 <Route path="/Foundmore" component={Foundmore} />
                 <Route path="/allbooks" component={AllBooks} />
                 <Route path="/free" component={Free}/>
+                <Route path="/sou" component={sou}/>
                 <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal" className="nav">
                     
                     <Menu.Item key="book">
