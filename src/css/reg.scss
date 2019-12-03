@@ -1,0 +1,33 @@
+.reg-body {
+
+    .reg-title {
+        height: 10.5vw;
+        background: #fbf9fe;
+        line-height: 10vw;
+        padding-left: 3vw;
+
+        span {
+            color: #333;
+            font-size: 3.8vw;
+            padding-left: 35vw;
+        }
+
+        .icon {
+            font-size: 5vw;
+            color: #ccc;
+        }
+    }
+
+    .reg-main {
+        padding: 8vw 5vw 3vw 5vw;
+
+        .ant-btn-primary {
+            width: 100px;
+        }
+        .ant-btn-primary {
+            background-color: #ee5048;
+            border-color:#ee5048;
+        }
+    }
+
+}

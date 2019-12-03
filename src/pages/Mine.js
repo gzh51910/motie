@@ -87,6 +87,7 @@ class Mine extends Component{
                         <Icon type="right" />
                     </div>
                     </Link>
+                    <Link to="/dingyue">
                     <div className = "my-t1">
                     <Icon type="video-camera" theme="twoTone" className ="icon" twoToneColor="#FF3333"/>
                         <span>
@@ -94,6 +95,8 @@ class Mine extends Component{
                         </span>
                         <Icon type="right" />
                     </div>
+                    </Link>
+                    <Link to="/huodong">
                     <div className = "my-t1">
                     <Icon type="profile" theme="twoTone" className ="icon" twoToneColor="#FF3333"/>
                         <span>
@@ -101,6 +104,7 @@ class Mine extends Component{
                         </span>
                         <Icon type="right" />
                     </div>
+                    </Link>
                     <div className = "my-t1">
                     <Icon type="like" theme="twoTone" className ="icon" twoToneColor="#FF3333"/>
                         <span>

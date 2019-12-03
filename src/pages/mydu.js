@@ -29,13 +29,13 @@ class Bookshelf extends Component{
                     mode="horizontal"
                     defaultSelectedKeys={['1']} className = 'menu'
                     >
-                            <Menu.Item onClick={()=>{this.tiaozhuan(1)}} key="1"><a>我的书架</a></Menu.Item>
-                            <Menu.Item onClick={()=>{this.tiaozhuan(2)}}><a>最近阅读</a></Menu.Item>
+                            <Menu.Item onClick={()=>{this.tiaozhuan(1)}} ><a>我的书架</a></Menu.Item>
+                            <Menu.Item onClick={()=>{this.tiaozhuan(2)}} key="1"><a>最近阅读</a></Menu.Item>
                     </Menu>
                         </ul>
                 </div>
                 <div className = 'Bookshelf-all'>
-                    收藏书籍<span>0</span>本
+                    最近阅读<span>0</span>本
                 </div>
             </div>
         )
