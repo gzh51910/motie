@@ -17,7 +17,9 @@ class Xiaofei extends Component{
         return (
             <div className = 'xiao-body'>
                 <div className = 'xiao-title'>
+                <a href="#/Mine">
                 <Icon type="left" className = "icon"/>
+                </a>
                     <span>消费记录</span>  
                 </div>
                 <div className = 'xiao-main'>

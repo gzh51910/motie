@@ -198,3 +198,69 @@
         }
     }
 }
+.ding-body {
+    .ding-title {
+        height: 10.5vw;
+        background: #fbf9fe;
+        line-height: 10vw;
+        padding-left: 3vw;
+
+        span {
+            color: #333;
+            font-size: 3.8vw;
+            padding-left: 37vw;
+        }
+
+        .icon {
+            font-size: 5vw;
+            color: #ccc;
+        }
+    }
+
+    .ding-main {
+        text-align: center;
+        p {
+            margin: 10.86667rem auto .53333rem;
+            width:6.73333rem;
+            height:4.73333rem;
+            background: url(https://pic.motieimg.com/web-wechat/dist/static/img/none-logs-bg.98d1ed5.png);
+            background-size: 6.73333rem 4.73333rem;
+        }
+        span {
+            font-size: 4vw;
+        }
+    }
+}
+.huo-body {
+    .huo-title {
+        height: 10.5vw;
+        background: #fbf9fe;
+        line-height: 10vw;
+        padding-left: 3vw;
+
+        span {
+            color: #333;
+            font-size: 3.8vw;
+            padding-left: 37vw;
+        }
+
+        .icon {
+            font-size: 5vw;
+            color: #ccc;
+        }
+    }
+
+    .huo-main {
+        text-align: center;
+        p {
+            margin: 10.86667rem auto .53333rem;
+            width:6.73333rem;
+            height:4.73333rem;
+            background: url(https://pic.motieimg.com/web-wechat/dist/static/img/none-logs-bg.98d1ed5.png);
+            background-size: 6.73333rem 4.73333rem;
+        }
+        span {
+            font-size: 4vw;
+        }
+    }
+}

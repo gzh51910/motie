@@ -189,3 +189,71 @@
 .xiao-body .xiao-main span {
   font-size: 4vw;
 }
+
+.ding-body .ding-title {
+  height: 10.5vw;
+  background: #fbf9fe;
+  line-height: 10vw;
+  padding-left: 3vw;
+}
+
+.ding-body .ding-title span {
+  color: #333;
+  font-size: 3.8vw;
+  padding-left: 37vw;
+}
+
+.ding-body .ding-title .icon {
+  font-size: 5vw;
+  color: #ccc;
+}
+
+.ding-body .ding-main {
+  text-align: center;
+}
+
+.ding-body .ding-main p {
+  margin: 10.86667rem auto .53333rem;
+  width: 6.73333rem;
+  height: 4.73333rem;
+  background: url(https://pic.motieimg.com/web-wechat/dist/static/img/none-logs-bg.98d1ed5.png);
+  background-size: 6.73333rem 4.73333rem;
+}
+
+.ding-body .ding-main span {
+  font-size: 4vw;
+}
+
+.huo-body .huo-title {
+  height: 10.5vw;
+  background: #fbf9fe;
+  line-height: 10vw;
+  padding-left: 3vw;
+}
+
+.huo-body .huo-title span {
+  color: #333;
+  font-size: 3.8vw;
+  padding-left: 37vw;
+}
+
+.huo-body .huo-title .icon {
+  font-size: 5vw;
+  color: #ccc;
+}
+
+.huo-body .huo-main {
+  text-align: center;
+}
+
+.huo-body .huo-main p {
+  margin: 10.86667rem auto .53333rem;
+  width: 6.73333rem;
+  height: 4.73333rem;
+  background: url(https://pic.motieimg.com/web-wechat/dist/static/img/none-logs-bg.98d1ed5.png);
+  background-size: 6.73333rem 4.73333rem;
+}
+
+.huo-body .huo-main span {
+  font-size: 4vw;
+}
