@@ -163,7 +163,7 @@ ul {
     position: absolute;
     left: 50%;
     top: 50%;
-    background: url() no-repeat;
+  
     margin-left: -3.2vw;
     margin-top: -3.2vw;
     background-size: 6.4vw auto;
@@ -324,3 +324,11 @@ h3 i {
 }
 
 
+.boxaasdsad{
+    width: 100%;
+    height: 14vw;
+    background: #fff;
+    position: fixed;
+    z-index: 5;
+    bottom: 0;
+}

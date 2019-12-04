@@ -373,7 +373,7 @@ console.log(datas);
             
             */}
                 {/*  */}
-                <div className="cover" ref="cover">
+                <div className="cover" ref="cover" style={{zIndex:"10"}}>
                     <div style={{width:"100%",height:"182vw",overflowY:"scroll",zIndex:"10"}}>
                         <div>
                     <h3 className="discoverH3"  onClick={()=>{this.discover()}} >返回</h3>
@@ -400,6 +400,7 @@ console.log(datas);
                 </div>
                 </div>
                 <div className="zhicheng"></div>
+                <div className="boxaasdsad"></div>
             </div>
             </div>
         )
