@@ -147,7 +147,7 @@ ul {
     position: absolute;
     left: 50%;
     top: 50%;
-    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBT…N1oQxDhAwSZ4MZqjSCI8DqCNF7pMNIX4tHWJ4C/fJ3m/8BVmaJd4/cHRQAAAAASUVORK5CYII=) no-repeat;
+    background: no-repeat;
     margin-left: -3.2vw;
     margin-top: -3.2vw;
     background-size: 6.4vw auto;
@@ -278,4 +278,12 @@ h3 i{
     float: left;
     height: 100%;
     padding: 2%;
+}
+.boxaasdsad{
+    width: 100%;
+    height: 14vw;
+    background: #fff;
+    position: fixed;
+    z-index: 5;
+    bottom: 0;
 }
