@@ -1,0 +1,46 @@
+.xiao-body{
+    width: 100%;
+    height: 15vw;
+    background: #eee;
+}
+.right{
+    float: right;
+    height: 13vw;
+    width: 13vw;
+}
+.xiao-body svg{
+    width: 9vw;
+    margin-right: 2vw;
+    margin-top: 3vw;
+    height: 9vw;
+}
+.left{
+    float: left;
+    height: 13vw;
+    width: 13vw;
+}
+.xiao-body .ant-input{
+width: 67%;
+margin-top: 3vw;
+}
+.bodiy{
+    padding: 2vw 3vw;
+    border: 0.5vw #999 solid;
+    float: left;
+    margin: 2.5vw;
+    border-radius: 4vw;
+    /* background: green; */
+    color:#000 !important;
+}
+.h42{
+    font-size: 5vw;
+    margin-left: 27%;
+    color: #666;
+}
+.sadda{
+    height: 17vw;
+    overflow: hidden;
+    margin-left: 24%;
+    font-size: 4vw;
+    color: #999;
+}

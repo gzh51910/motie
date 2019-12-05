@@ -26,7 +26,7 @@ import Free from './pages/Free';
 import Chongzhi from '~/chongzhi';
 import Xiaofei from '~/xiaofei';
 import sou from '~/sou';
-
+// import Test from '~/Test';
 class App extends Component {
   
     state = {
@@ -59,6 +59,7 @@ class App extends Component {
                 <Route path="/allbooks" component={AllBooks} />
                 <Route path="/free" component={Free}/>
                 <Route path="/sou" component={sou}/>
+                {/* <Route path="/Test" component={Test}/> */}
                 <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal" className="nav">
                     
                     <Menu.Item key="book">
