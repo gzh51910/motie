@@ -34,16 +34,42 @@ class Read extends Component{
         
         this.getdata(id)
     }
-    goto=()=>{
+    goto= async()=>{
         this.setState({
             reverse:true
         })
         this.getdata(this.state.book.nextChapterId)
+        console.log(this.state.book.nextChapterId);
+        let username = localStorage.getItem("username")
+        console.log(username);
+        
+        let bookread = this.state.book.nextChapterId 
+        let data = await my.post(
+            "/reg",
+            {
+            username, bookread
+            }     
+        );   
+        console.log(data);
+        
+        /* 加用户名的请求 */
         window.scrollTo(0,0)
     }
-    goback=()=>{
+goback=   async ()=>{
         if(this.state.book.preChapterId){
             this.getdata(this.state.book.preChapterId)
+            console.log(this.state.book.preChapterId);
+            let bookread = this.state.book.preChapterId 
+            let username = localStorage.getItem("username")
+            console.log(username);
+            let data = await my.post(
+            "/reg",
+            {
+            username, bookread
+            }     
+            
+        );   
+        console.log(data);
             window.scrollTo(0,0)
         }
     }

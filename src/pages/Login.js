@@ -21,6 +21,9 @@ class Login extends Component{
               let { username } = values;
               localStorage.setItem("username", username);
               message.success('恭喜！登录成功！');
+
+              this.props.history.push(username)
+              
               this.props.history.push('/Mine');
             }else {
               message.warning('登录失败！请检查您输入的账号或密码是否正确！');

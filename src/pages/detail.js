@@ -38,6 +38,10 @@ class Detail extends Component {
     componentDidMount() {
         let id=this.props.location.search.split("=")[1];
         this.getData(id)
+
+        // let losc = localStorage.getItem("username")
+        // console.log(losc);
+        
     }
     goto(id){
         this.setState({pagelist:[]})
@@ -63,12 +67,21 @@ class Detail extends Component {
     }
     booksheif= async (id)=>{
 
-// let reg = await my.get("/reg");
-// console.log(reg);
-console.log(id);
-this.props.history.push(`/Bookshelf?${id}`)
+        // let reg = await my.get("/reg");
+        // console.log(reg);
+        console.log(id);
+        // this.props.history.push(`/Bookshelf?${id}`)
+        let book = []
+        book.push(id)
 
-
+        let username = localStorage.getItem("username")
+        let data = await my.post(
+            "/reg",
+            {
+            username, book
+            }     
+        );    
+        console.log(data);
     }
     render() {
         let {detail,view,pagelist,hide}=this.state;
