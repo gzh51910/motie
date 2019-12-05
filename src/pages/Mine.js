@@ -26,7 +26,6 @@ class Mine extends Component{
                         </dt>
                         <dt className = 'right'>
                             <span>
-                                小涛来看书
                                 
                                 <p> <Icon type="sketch" /> 普通会员</p>
                             </span>
@@ -119,6 +118,7 @@ class Mine extends Component{
                         </span>
                         <Icon type="right" />
                     </div>
+                    <Link to="/jieshao">
                     <div className = "my-t1">
                     <Icon type="contacts" theme="twoTone" className ="icon" twoToneColor="#FF3333"/>
                         <span>
@@ -126,6 +126,7 @@ class Mine extends Component{
                         </span>
                         <Icon type="right" />
                     </div>
+                    </Link>
                 </div>
                 <div className = 'my-end'>
                 <Link to="/Login">

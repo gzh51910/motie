@@ -29,6 +29,7 @@ import sou from '~/sou';
 import Dingyue from '~/dingyue';
 import Huodong from '~/huodong';
 import Mydu from '~/mydu';
+import Jieshao from '~/jieshao';
 
 
 // import Test from '~/Test';
@@ -49,6 +50,7 @@ class App extends Component {
                 <Route path="/mine" component={Mine} />
                 <Route path="/Reg" component={Reg} />
                 <Route path="/mydu" component={Mydu} />
+                <Route path="/jieshao" component={Jieshao} />
                 <Route path="/chongzhi" component={Chongzhi} />
                 <Route path="/xiaofei" component={Xiaofei} />
                 <Route path="/dingyue" component={Dingyue} />
