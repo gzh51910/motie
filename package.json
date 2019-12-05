@@ -1,7 +1,7 @@
 {
-  "name": "w5_webpack",
+  "name": "cls",
   "version": "1.0.0",
-  "description": "",
+  "description": "motie~~~",
   "main": "index.js",
   "directories": {
     "doc": "doc"
@@ -46,5 +46,13 @@
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gzh51910/motie.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gzh51910/motie/issues"
+  },
+  "homepage": "https://github.com/gzh51910/motie#readme"
 }

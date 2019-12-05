@@ -1,40 +1,52 @@
 import React,{Component} from 'react';
 import '../css/Log.css';
 import ReactDOM from 'react-dom';
-import { Form, Icon, Input, Button, Checkbox, Divider, Select, Row, Col} from 'antd';
+import { Form, Icon, Input, Button, Checkbox, Divider, Select, Row, Col, message} from 'antd';
+import {my} from '../api';
 
 class Login extends Component{
     handleSubmit = e => {
         e.preventDefault();
-        this.props.form.validateFields((err, values) => {
+        this.props.form.validateFields(async(err, values) => {
           if (!err) {
             console.log('Received values of form: ', values);
-          }
-        });
+            let { password, username} = values;
+            let data = await my.get(
+                `/login?password=${password}&username=${username}`,  
+            );
+            console.log(data);
+            if (data.data.status === 1) {
+              let Authrization = data.data.token;
+              localStorage.setItem("Authrization", Authrization);
+              let { username } = values;
+              localStorage.setItem("username", username);
+              message.success('恭喜！登录成功！');
+              this.props.history.push('/Mine');
+            }else {
+              message.warning('登录失败！请检查您输入的账号或密码是否正确！');
+            }
+         };
+      });
     };
     render(){
         const { getFieldDecorator } = this.props.form;
-        const prefixSelector = getFieldDecorator('prefix', {
-          initialValue: '86',
-        })(
-          <Select style={{ width: 70 }}>
-            <Option value="86">+86</Option>
-            <Option value="87">+87</Option>
-          </Select>,
-        );
         return (
             <div className = 'log-body'>
                 <div className = 'log-title'>
                 <a href="/"><Icon type="left" className = "icon"/></a>
-                
                     <span>快捷登录</span>   
                 </div>
                 <div className = 'log-main'>
                 <Form onSubmit={this.handleSubmit} className="login-form">
-                <Form.Item label="手机号码">
-          {getFieldDecorator('phone', {
-            rules: [{ required: true, message: '请输入您的手机号码' }],
-          })(<Input addonBefore={prefixSelector} style={{ width: '100%' }} />)}
+                <Form.Item>
+          {getFieldDecorator('username', {
+            rules: [{ required: true, message: '请您输入用户名!' }],
+          })(
+            <Input
+              prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+              placeholder="请输入用户名"
+            />,
+          )}
         </Form.Item>
         <Form.Item label="密码">
           {getFieldDecorator('password', {
@@ -47,18 +59,6 @@ class Login extends Component{
             />,
           )}
         </Form.Item>
-        <Form.Item label="验证码">
-          <Row gutter={8}>
-            <Col span={12}>
-              {getFieldDecorator('captcha', {
-                rules: [{ required: true, message: '请输入您获得的验证码！' }],
-              })(<Input />)}
-            </Col>
-            <Col span={12}>
-              <Button>发送验证码</Button>
-            </Col>
-          </Row>
-        </Form.Item>
         <Form.Item>
             <ul>
           {getFieldDecorator('remember', {
@@ -70,7 +70,7 @@ class Login extends Component{
           </a>
           </ul>
           <Button type="primary" htmlType="submit" className="login-form-button" style={{ width: '100%' }}>
-          <a href="#/Mine">登录</a>
+          登录
           </Button>
           <br></br>
            <span>在此</span> <a href="#/Reg" style={{ color: '#ee5048'}}>免费注册!</a>

@@ -1,0 +1,23 @@
+.jie-body .jie-title {
+  height: 10.5vw;
+  background: #fbf9fe;
+  line-height: 10vw;
+  padding-left: 3vw;
+}
+
+.jie-body .jie-title span {
+  color: #333;
+  font-size: 3.8vw;
+  padding-left: 33vw;
+}
+
+.jie-body .jie-title .icon {
+  font-size: 5vw;
+  color: #ccc;
+}
+
+.jie-body .jie-main {
+  padding: 3vw 4vw 3vw 4vw;
+  font-size: 3.9vw;
+  color: #333;
+}
