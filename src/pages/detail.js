@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {my} from '@/api'
+import {my,nsg} from '@/api'
 import {Icon} from 'antd';
 import "../css/detail.css"
 import { Item } from 'rc-menu';
@@ -61,8 +61,19 @@ class Detail extends Component {
         })
         
     }
+    booksheif= async (id)=>{
+
+// let reg = await my.get("/reg");
+// console.log(reg);
+console.log(id);
+this.props.history.push(`/Bookshelf?${id}`)
+
+
+    }
     render() {
         let {detail,view,pagelist,hide}=this.state;
+        // console.log(detail);
+        
         
         return (
             <div style={{position:"relative"}}>
@@ -91,7 +102,7 @@ class Detail extends Component {
                         </div>
                     </div>
                     <div className="bookbtn">
-                        <span>加入书架</span>
+                        <span onClick={()=>{this.booksheif(detail.id)}}>加入书架</span>
                         <span onClick={()=>{ this.props.history.push(`/read?id=${detail.firstChapterId}&bookid=${detail.id}`)} }>立即阅读</span>
                     </div>
                     <div className="bookct">

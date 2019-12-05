@@ -1,15 +1,28 @@
 import React,{Component} from 'react';
-import {nsg} from '@/api';
+import {nsg,my} from '@/api';
 import {Carousel,Icon,Menu,SubMenu,Badge} from 'antd'
 import "../css/Bookshelf.css"
-
+import '../css/sou.css'
 
 class Bookshelf extends Component{
     state = {
-        
+        datas:[],
     };
 
-
+    async componentDidMount(){
+        
+        
+        // console.log(this.props.history.location.search.slice(1));
+        let data = await my.get("/detail",{
+            id:this.props.history.location.search.slice(1)
+        });
+        let name = await my.get(`/Login?password=666&username=666`);
+        console.log(name);
+        let datas = data.data
+        this.setState({
+            datas
+        })
+    }
 
     tiaozhuan = (id) =>{
         if(id==1){
@@ -20,6 +33,8 @@ class Bookshelf extends Component{
     }
     
     render(){
+        let {datas} = this.state
+
        
         return (
             <div className = 'Bookshelf-body'>
@@ -35,8 +50,25 @@ class Bookshelf extends Component{
                         </ul>
                 </div>
                 <div className = 'Bookshelf-all'>
-                    收藏书籍<span>0</span>本
+                    收藏书籍<span>{datas.length}</span>本
+
+
+               
+                    
                 </div>
+
+
+                {
+                    datas.map(item=>{
+                        return(
+                            <div onClick={()=>{this.goto(item.id)}}  key={item.id} style={{padding:"3vw"}}> 
+                                <img src={item.icon} style={{width:'20%',float:'left'}}></img>
+                                <h4 className="h42">{item.name}</h4>
+                                <p className='sadda'>{item.introduce}</p>
+                            </div>
+                        )
+                    })
+                }
             </div>
         )
     }
