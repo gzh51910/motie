@@ -102,7 +102,11 @@ class Home extends Component{
     gotofound = () =>{
         this.props.history.push("/Foundmore")
     }
-    
+    sou = () =>{
+       
+        this.props.history.push("/sou")
+        
+    }
     render(){
         let {banner,lvl,recommend,main,recommend_name,maincategory,maincategory_main,datu,Collection,Collection_name,Finishedboutique,
         Finishedboutique_main,WEATHERVANE,WEATHERVANE_name, NEWbook, NEWbook_main,foundit,foundit_name} = this.state
@@ -135,7 +139,7 @@ class Home extends Component{
                             <li><a>女生</a></li>
                             <li><a>出版</a></li> */}
                         </ul>
-                        <span className='spannn'><Icon type="search" /></span>
+                        <span className='spannn'><Icon type="search" onClick={()=>{this.sou()}} /></span>
                         <span className='spannn'>&nbsp;<Icon type="menu-unfold" /></span>
                         <div></div>
                         <div></div>

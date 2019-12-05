@@ -18,7 +18,8 @@ class Reg extends Component{
         TTshort:[],
         TThot:[],
         POP:[],
-        TTtoday:[]
+        TTtoday:[],
+        lastestSpecialVO1:[],
 
 
     }
@@ -39,7 +40,9 @@ class Reg extends Component{
         let hotSpecialVO = datas.data.data.hotSpecialVO
         let shortArticleList = datas.data.data.shortArticleList
         let lastestSpecialVO = datas.data.data.lastestSpecialVO.bookList
+        let lastestSpecialVO1 = datas.data.data.lastestSpecialVO
 
+console.log(datas);
 
         // console.log(TTdatas,TTshort,TThot);
     this.setState({
@@ -48,7 +51,7 @@ class Reg extends Component{
         hotBooks,
         hotSpecialVO,
         shortArticleList,
-        lastestSpecialVO,
+        lastestSpecialVO,lastestSpecialVO1,
         TTdatas,
         TTshort,
         TThot,
@@ -59,10 +62,10 @@ class Reg extends Component{
     getbookid = (id) =>{
         // console.log("booksid:",id);
         this.props.history.push(`/detail?book=${id}`)
-        
+        clearInterval(this.timer)
     }
     
-    /* componentWillMount () {
+    componentWillMount () {
         let a = 0;
         // let upl = this.refs.upl
        
@@ -102,7 +105,7 @@ class Reg extends Component{
         }, 50)
         // clearInterval(this.timer);
  
-     }*/
+     }
    
     list(id,TTdatas,TTshort,TThot,today){
         // console.log("id::::",id,TTdatas,TTshort,TThot,);
@@ -152,7 +155,7 @@ class Reg extends Component{
 
 
     render(){
-     let {discoveryBook,audioBook,hotBooks,hotSpecialVO,shortArticleList,lastestSpecialVO,TTdatas,TTshort,TThot,TTtoday,POP,a} = this.state
+     let {discoveryBook,audioBook,hotBooks,hotSpecialVO,lastestSpecialVO1,shortArticleList,lastestSpecialVO,TTdatas,TTshort,TThot,TTtoday,POP,a} = this.state
      
     
   
@@ -370,25 +373,34 @@ class Reg extends Component{
             
             */}
                 {/*  */}
-                <div className="cover" ref="cover">
+                <div className="cover" ref="cover" style={{zIndex:"10"}}>
+                    <div style={{width:"100%",height:"182vw",overflowY:"scroll",zIndex:"10"}}>
+                        <div>
                     <h3 className="discoverH3"  onClick={()=>{this.discover()}} >返回</h3>
-                    <h1>title</h1>
+                    <h1 style={{padding:"2vw",fontSize:"6vw"}}>为你推荐</h1>
                              {
                                POP.map(item => <div className="pa1" key={item.bookId}  onClick={()=>{this.getbookid(item.articleId)}}>
-                            <div  className="audio-img">
-                           
-                                <img key={48541565}  src={item.picture?item.icon?item.coverUrlSmall?item.coverUrlSmall:item.icon:item.picture:"没有了"}/>
+                            <div  className="audio-img divboxaa">
+                                                                                                                                    
+                                <img key={48541565} style={{width:"100%",height:"100%",padding:"3%"}}  src={item.picture?item.picture:(item.icon?item.icon:item.coverUrlSmall)}/>
                             </div> 
-                                    <div  key={5484412548}  onClick={()=>{this.getbookid(item.articleId)}} className="audio-info">
-                                        <h3 key={45125115} >{item.booksName?item.name?item.title?item.title:item.name:item.booksName:"没有了"}</h3>
-                                        <p key={515461654}  style={{overflow: "hidden", height: "9vw"}} className="audio-intro">
-                                            {item.intro?item.recommned?item.intro:item.recommned:"没有了"}</p>
+                                    <div  key={5484412548}  onClick={()=>{this.getbookid(item.articleId)}} className="audio-info boxright">
+                                        <h3 key={45125115} >{/* item.bookName?item.name?item.title?item.title:item.name:item.bookName:item.name */
+                                                              item.bookName?item.bookName:(item.name?item.name:item.title)      
+                                                                }</h3>
+                                        <p key={515461654}  style={{overflow: "hidden", height: "12vw",marginTop:"1vw",color:"#999"}} className="audio-intro">
+                                            {item.intro?item.intro:item.recommend}
+                                          
+                                            </p>
                                     </div>
 
                                </div>)
                            }
                 </div>
+                </div>
+                </div>
                 <div className="zhicheng"></div>
+                <div className="boxaasdsad"></div>
             </div>
             </div>
         )
