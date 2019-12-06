@@ -2,6 +2,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 module.exports = {
     entry: './src/main.js',
+    // output:{
+    //     path: '/dist'
+    // },
     devServer: {
         contentBase: path.join(__dirname, './public'),
         port: 3100
@@ -73,5 +76,16 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './public/index.html'
         })
-    ]
+    ],
+
+    performance: {
+        hints: "warning", 
+        maxAssetSize: 30000000, 
+        maxEntrypointSize: 50000000, 
+        assetFilter: function(assetFilename) {
+            return assetFilename.endsWith('.css') || assetFilename.endsWith('.js')
+        }
+    
+    }
+
 }

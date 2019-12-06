@@ -25,9 +25,11 @@ class RankLeft extends Component{
     // 获取排行页数据，加载下一页数据
     componentDidMount(){
         this.getRankLeftData("/hotrank");
-        window.onscroll=async ()=>{
+        this.refs.rank.onscroll=async ()=>{
             // 滚动条(滚过)的高度(=body/html的高) + 现显示的页面的高度 == 整个页面的高度（一页的高度），请求下一页数据
             // documentElement== html
+            console.log(1111111);
+            
             let h=(document.body.scrollTop || document.documentElement.scrollTop)+window.screen.height;
             // 置顶：判断当前滚动条的高度》300时，显示置顶（）
             if(h - window.screen.height >300){

@@ -42,7 +42,7 @@ class List extends Component{
               this.onScroll(this);
             });
           }
-          window.addEventListener('scroll', async () =>{
+          this.refs.list.addEventListener('scroll', async () =>{
             let h=document.body.scrollTop || document.documentElement.scrollTop;
             console.log(h+window.screen.height,this.refs.list.offsetHeight);
             
