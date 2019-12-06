@@ -26,7 +26,6 @@ class Mine extends Component{
                         </dt>
                         <dt className = 'right'>
                             <span>
-                                小涛来看书
                                 
                                 <p> <Icon type="sketch" /> 普通会员</p>
                             </span>
@@ -87,6 +86,7 @@ class Mine extends Component{
                         <Icon type="right" />
                     </div>
                     </Link>
+                    <Link to="/dingyue">
                     <div className = "my-t1">
                     <Icon type="video-camera" theme="twoTone" className ="icon" twoToneColor="#FF3333"/>
                         <span>
@@ -94,6 +94,8 @@ class Mine extends Component{
                         </span>
                         <Icon type="right" />
                     </div>
+                    </Link>
+                    <Link to="/huodong">
                     <div className = "my-t1">
                     <Icon type="profile" theme="twoTone" className ="icon" twoToneColor="#FF3333"/>
                         <span>
@@ -101,6 +103,7 @@ class Mine extends Component{
                         </span>
                         <Icon type="right" />
                     </div>
+                    </Link>
                     <div className = "my-t1">
                     <Icon type="like" theme="twoTone" className ="icon" twoToneColor="#FF3333"/>
                         <span>
@@ -115,6 +118,7 @@ class Mine extends Component{
                         </span>
                         <Icon type="right" />
                     </div>
+                    <Link to="/jieshao">
                     <div className = "my-t1">
                     <Icon type="contacts" theme="twoTone" className ="icon" twoToneColor="#FF3333"/>
                         <span>
@@ -122,6 +126,7 @@ class Mine extends Component{
                         </span>
                         <Icon type="right" />
                     </div>
+                    </Link>
                 </div>
                 <div className = 'my-end'>
                 <Link to="/Login">

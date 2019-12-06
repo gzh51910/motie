@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {my} from '@/api'
+import {my,nsg} from '@/api'
 import {Icon} from 'antd';
 import "../css/detail.css"
 import { Item } from 'rc-menu';
@@ -39,6 +39,7 @@ class Detail extends Component {
     componentDidMount() {
         let id=this.props.location.search.split("=")[1];
         this.getData(id)
+        
     }
     goto(id){
         this.setState({pagelist:[]})
@@ -62,8 +63,25 @@ class Detail extends Component {
         })
         
     }
+    booksheif= async (id)=>{
+        let book = []
+        book.push(id)
+
+        let username = localStorage.getItem("username")
+        let data = await my.post(
+            "/reg",
+            {
+            username, book
+            }     
+        );    
+        console.log(data);
+    }
     render() {
         let {detail,view,pagelist,hide}=this.state;    
+     
+        // console.log(detail);
+        
+        
         return (
             <div style={{position:"relative"}}>
                 <div style={{position:"relative"}}>
@@ -85,7 +103,7 @@ class Detail extends Component {
                         </div>
                     </div>
                     <div className="bookbtn">
-                        <span>加入书架</span>
+                        <span onClick={()=>{this.booksheif(detail.id)}}>加入书架</span>
                         <span onClick={()=>{ this.props.history.push(`/read?id=${detail.firstChapterId}&bookid=${detail.id}`)} }>立即阅读</span>
                     </div>
                     <div className="bookct">

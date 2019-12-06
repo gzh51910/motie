@@ -85,7 +85,7 @@ class Homecb extends Component{
     }
     getid = (id) =>{
       
-        console.log("id:",id);
+   
         this.props.history.push(`/detail?book=${id}`)
         
         
@@ -107,6 +107,11 @@ class Homecb extends Component{
         }else if(id==3){
             
         }
+        
+    }
+    sou = () =>{
+       
+        this.props.history.push("/sou")
         
     }
     
@@ -154,7 +159,7 @@ class Homecb extends Component{
                             <li><a>女生</a></li>
                             <li><a>出版</a></li> */}
                         </ul>
-                        <span className='spannn'><Icon type="search" /></span>
+                        <span className='spannn'><Icon type="search" onClick={()=>{this.sou()}}  /></span>
                         <span className='spannn'>&nbsp;<Icon type="menu-unfold" /></span>
                         <div></div>
                         <div></div>

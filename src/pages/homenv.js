@@ -80,7 +80,7 @@ class Homenv extends Component{
     }
     getid = (id) =>{
       
-        console.log("id:",id);
+    
         this.props.history.push(`/detail?book=${id}`)
         
         
@@ -103,6 +103,11 @@ class Homenv extends Component{
             this.props.history.push(`/homecb`);
             
         }
+        
+    }
+    sou = () =>{
+       
+        this.props.history.push("/sou")
         
     }
     render(){
@@ -152,7 +157,7 @@ class Homenv extends Component{
                                 <li><a>女生</a></li>
                                 <li><a>出版</a></li> */}
                             </ul>
-                            <span className='spannn'><Icon type="search" /></span>
+                            <span className='spannn'><Icon type="search"  onClick={()=>{this.sou()}}  /></span>
                             <span  className='spannn'>&nbsp;<Icon type="menu-unfold" /></span>
                             <div></div>
                             <div></div>
@@ -163,7 +168,7 @@ class Homenv extends Component{
                  {/* 轮播 */}
                 <Carousel autoplay>
                 {  
-                    banner.map(item=>   <div key={item.name} ><img key={item.name}  src={item.imgUrl} /> </div>)
+                    banner.map(item=>   <div key={item.bookId} ><img key={item.name}  src={item.imgUrl} /> </div>)
                 }
                 </Carousel>
                 <div className='zhicheng'></div>

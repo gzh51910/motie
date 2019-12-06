@@ -1,17 +1,24 @@
 import React,{Component} from 'react';
 import '../App.scss';
 import ReactDOM from 'react-dom';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Icon, Input, Button, Checkbox, message } from 'antd';
 
 class Invest extends Component{
     state = {
         
       };
+
+
+
+
     render(){
+        const success = () => {
+            message.success('恭喜！充值1亿成功');
+          };
         return (
             <div className = 'Invest-body'>
              <div className = 'Invest-title'>
-                <Icon type="left" className = "icon"/>
+             <a href="#/Mine"><Icon type="left" className = "icon"/></a>
                     <span>充值</span>   
                 </div>
                 <div className = 'Invest-main'>
@@ -47,7 +54,7 @@ class Invest extends Component{
                 <Icon type="alipay-circle" />支付宝
                 </em>
                 </div>
-                <div className = 'Invest-btn'>
+                <div className = 'Invest-btn' onClick={success}>
                 <p>
                     充值
                  </p>

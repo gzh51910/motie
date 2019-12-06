@@ -20,7 +20,7 @@ class GetListMenu extends React.Component {
             item.classify.map((ele,index)=>{
                 return <span className="ListMenuChannel-R" key={index+"i"} >
                 {/* 调用changeactive（） */}
-                <i onClick={()=>{this.changeactive(index)}} className={this.state.active==index?"ListMenuIcon-Active ListMenuIcon":"ListMenuIcon"}>
+                <i onClick={()=>{this.changeactive(index)}} className={this.state.active==index?"ListMenuIcon-Active ListMenuIcon":"ListMenuIcon"} data-index={index}>
                     {ele}
                 </i>
             </span>

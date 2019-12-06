@@ -16,6 +16,10 @@ function post(path,data={},config={}){
     return my.post(path,data,config)
 }
 
+function postdata(path,data){
+    return axios.post(path,data)
+}
+
 export default {
     get,
     post

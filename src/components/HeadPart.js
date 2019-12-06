@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import {Icon,Menu} from 'antd';
+import { withRouter } from 'react-router-dom';
 import '../css/home.css';
 class HeadPart extends Component{
     tiaozhuan = (id) =>{
         // console.log("--------",id);
+        console.log(this);
+        
         if(id==1){
 
         }else if(id == 2){
@@ -45,4 +48,4 @@ class HeadPart extends Component{
 }
 
 
-export default HeadPart;
+export default withRouter(HeadPart);

@@ -1,10 +1,6 @@
 import React,{Component} from 'react';
 import {nsg,my} from '@/api';
-import FooterQr from '@@/FooterQr';
-import FooterPart from '@@/FooterPart';
 import '../css/home.css';
-import '../css/FooterQr.css';
-import '@/css/FooterPart.css'
 import {Carousel,Icon,Menu,SubMenu,Badge} from 'antd'
 
 
@@ -80,7 +76,7 @@ class Home extends Component{
     }
     getid = (id) =>{
       
-        console.log("id:",id);
+       
         this.props.history.push(`/detail?book=${id}`)
         
     }
@@ -101,16 +97,16 @@ class Home extends Component{
         }else if(id==3){
             this.props.history.push(`/homecb`);
         }
-        
-    
 
-
-        
     }
-    gothere = () =>{
+    gotofound = () =>{
         this.props.history.push("/Foundmore")
     }
-    
+    sou = () =>{
+       
+        this.props.history.push("/sou")
+        
+    }
     render(){
         let {banner,lvl,recommend,main,recommend_name,maincategory,maincategory_main,datu,Collection,Collection_name,Finishedboutique,
         Finishedboutique_main,WEATHERVANE,WEATHERVANE_name, NEWbook, NEWbook_main,foundit,foundit_name} = this.state
@@ -143,7 +139,7 @@ class Home extends Component{
                             <li><a>女生</a></li>
                             <li><a>出版</a></li> */}
                         </ul>
-                        <span className='spannn'><Icon type="search" /></span>
+                        <span className='spannn'><Icon type="search" onClick={()=>{this.sou()}} /></span>
                         <span className='spannn'>&nbsp;<Icon type="menu-unfold" /></span>
                         <div></div>
                         <div></div>
@@ -159,14 +155,14 @@ class Home extends Component{
                         }
                     </Carousel>
 
-                    <div className='zhicheng'></div>
+                   
 
                 {/* 浏览记录 */}
                 <div className="lvl">
                         浏览记录
                     </div>
             </div>
-            <div className='zhicheng'></div>
+
                 {/* 分类列表 */}
                 <Menu
                     mode="horizontal"
@@ -184,7 +180,7 @@ class Home extends Component{
                         })
                     }
                 </Menu>
-                <div className='zhicheng'></div>
+
                 {/* 主编力荐 */}
                 <div>
                 <div className="recommned">
@@ -195,7 +191,7 @@ class Home extends Component{
                         }
                 </div>
                 </div>
-                <div className='zhicheng'></div>
+
                 {/* 主打分类 */}
                 <div className="maincategory">
                     <div className='maincategory_top' title={recommend_name.bookName}><Icon type="like" />{maincategory.name}</div>
@@ -205,12 +201,12 @@ class Home extends Component{
 
                 </div>
                 <div className="moer">查看更多</div>
-                <div className='zhicheng'></div>
+
                 {/*  大图*/}
                 <div className="datu">
-                    <img src={datu} style={{width:'100%'}} onClick={this.gothere}></img>
+                    <img src={datu} onClick={this.gotofound} style={{width:'100%'}}></img>
                 </div>
-                <div className='zhicheng'></div>
+
                 {/* 书友收藏 */}
                 <div className="recommned">
                     <div className='Collection_name_top' title={Collection_name.bookName}><Icon type="like" />{Collection_name.name}</div>
@@ -221,18 +217,18 @@ class Home extends Component{
                     
 
                 </div>
-                <div className='zhicheng'></div>
+
                 {/* 完本精品 */}
                 
                 <div className="maincategory">
                     <div className='maincategory_top' title={recommend_name.bookName}><Icon type="like" />{Finishedboutique.name}</div>
                     {  
-                Finishedboutique_main.map(item=>  <div className="maincategory_img" key={item.bookId} ><img  onClick={()=>{this.getid(item.bookId)}} key={item.name} className="maincategory_imgone"  src={item.imgUrl} /><div className="maincategory_neirong"><p className="maincategory_top_name">{item.bookName}</p><p className="maincategory_top_nneirong">{item.introduction}</p><div className="maincategory_foot"><img className="img_head" src={item.userImgUrl}></img><p className="zuozhe">{item.penName}</p><p className="booksname">{item.category}</p></div></div></div>)    }
+                Finishedboutique_main.map(item=>  <div className="maincategory_img" key={item.bookId} ><img  onClick={()=>{this.getid(item.bookId)}} key={item.name} className="maincategory_imgone"  src={item.imgUrl} /><div className="maincategory_neirong"><p className="maincategory_top_name">{item.bookName}</p><p className="maincategory_top_nneirong">{item.introduction}</p><div className="maincategory_foot"><img className="img_head" src={item.userImgUrl}></img><p className="zuozhe">{item.PenName}</p><p className="booksname">{item.category}</p></div></div></div>)    }
                     
 
                 </div>
                 <div className="moer">查看更多</div>
-                <div className='zhicheng'></div>
+
                 {/* 无线风向标 */}
                 
                 <div className="recommned">
@@ -242,18 +238,17 @@ class Home extends Component{
                         }
                 </div>
                 <div className="moer">查看更多</div>
-                <div className='zhicheng'></div>
+
                 {/* 新书抢先看*/}
                 <div className="maincategory">
                     <div className='maincategory_top' title={recommend_name.bookName}><Icon type="like" />{NEWbook.name}</div>
                     {  
-                NEWbook_main.map(item=>  <div className="maincategory_img" key={item.bookId} ><img  onClick={()=>{this.getid(item.bookId)}} key={item.name} className="maincategory_imgone"  src={item.imgUrl} /><div className="maincategory_neirong"><p className="maincategory_top_name">{item.bookName}</p><p className="maincategory_top_nneirong">{item.introduction}</p><div className="maincategory_foot"><img className="img_head" src={item.userImgUrl}></img><p className="zuozhe">{item.penName}</p><p className="booksname">{item.category}</p></div></div></div>)    }
+                NEWbook_main.map(item=>  <div className="maincategory_img" key={item.bookId} ><img  onClick={()=>{this.getid(item.bookId)}} key={item.name} className="maincategory_imgone"  src={item.imgUrl} /><div className="maincategory_neirong"><p className="maincategory_top_name">{item.bookName}</p><p className="maincategory_top_nneirong">{item.introduction}</p><div className="maincategory_foot"><img className="img_head" src={item.userImgUrl}></img><p className="zuozhe">{item.PenName}</p><p className="booksname">{item.category}</p></div></div></div>)    }
                     
 
                 </div>
                 <div className="moer">查看更多</div>
 
-                        <div className='zhicheng'></div>
                 {/* 发现好书 */}
 
                 <div className="recommned gd">
@@ -262,29 +257,13 @@ class Home extends Component{
                             foundit.map(item=>  <div className="recommend_img pp" key={item.bookId} ><img  onClick={()=>{this.getid(item.bookId)}} key={item.name} style={{width:"100%"}}  src={item.imgUrl} /><p className="recommned_p">{item.bookName}</p> </div>)
                         }
                 </div>
-                {/* <div className="moer" onClick={()=>{this.getid(Collection_name.id)}} >查看更多</div> */}
-                
-
-                {/* foot */}
-                 <FooterPart/>
-                <FooterQr/>
-
-
+                <div className="moer" onClick={()=>{this.getid(Collection_name.id)}} >查看更多</div>
 
                 {/*内容支撑  */}
-                <div className="mafooter"></div>
+                  <div className="mafooter"></div>
 
 
             </div>
-
-
-
-
-
-
-
-
-
         )
     }
 }
