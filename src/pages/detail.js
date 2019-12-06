@@ -79,9 +79,6 @@ class Detail extends Component {
     render() {
         let {detail,view,pagelist,hide}=this.state;    
      
-        // console.log(detail);
-        
-        
         return (
             <div style={{position:"relative"}}>
                 <div style={{position:"relative"}}>

@@ -3,6 +3,7 @@ import '../css/Log.css';
 import ReactDOM from 'react-dom';
 import { Form, Icon, Input, Button, Checkbox, Divider, Select, Row, Col, message} from 'antd';
 import {my} from '../api';
+import store from "@/store"
 
 class Login extends Component{
     handleSubmit = e => {
@@ -14,17 +15,26 @@ class Login extends Component{
             let data = await my.get(
                 `/login?password=${password}&username=${username}`,  
             );
-            console.log(data);
+            
             if (data.data.status === 1) {
               let Authrization = data.data.token;
               localStorage.setItem("Authrization", Authrization);
               let { username } = values;
+              store.dispatch({type:"setusername",username})
+              
               localStorage.setItem("username", username);
               message.success('恭喜！登录成功！');
-
-              this.props.history.push(username)
+              console.log(this.props.location.state.from.pathname);
               
-              this.props.history.push('/Mine');
+              // this.props.history.push(username)
+              if(this.props.location.state){
+                this.props.history.push(this.props.location.state.from.pathname);
+              }else{
+                this.props.history.push('/Mine');
+              }
+              
+              
+              
             }else {
               message.warning('登录失败！请检查您输入的账号或密码是否正确！');
             }

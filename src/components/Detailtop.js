@@ -9,7 +9,7 @@ class Detailtop extends Component {
             <div className="detailtop">
                 <Icon type="left" className="back" onClick={()=>{this.props.history.go(-1)}}/>
                 {this.props.name}
-                <Icon type="home" className="ricon"/>
+                <Icon type="home" className="ricon" onClick={()=>{this.props.history.push("/")}}/>
                 <Icon type="search" className="ricon"/>
             </div>
         )

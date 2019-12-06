@@ -2,17 +2,16 @@ import {ADD_TO_CART} from '../action/cart'
 
 // State：初始化数据
 let initialState = {
-    goodslist:[]
+    username:""
 }
 
-const reducer = function(state=initialState,{type}){
+const reducer = function(state=initialState,{type,username}){
 
     switch(type){
         // 添加到购物车
-        case ADD_TO_CART:
+        case "setusername":
             state = {
-                ...state,
-                goodslist:[...state.goodslist]
+                username
             }
             return state
         default:

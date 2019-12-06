@@ -126,7 +126,7 @@ class List extends Component{
                 {/* 头部菜单 */}
                 <div id="ListMenu">
                     <div className="ListMenuHeader">
-                        <Icon className="ListHeaderBack" type="left" />
+                        <Icon className="ListHeaderBack" type="left" onClick={()=>{this.props.history.push("/")}}/>
                         <h2>分类</h2>
                     </div>
 

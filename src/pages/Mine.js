@@ -27,7 +27,7 @@ class Mine extends Component{
                         <dt className = 'right'>
                             <span>
                                 
-                                <p> <Icon type="sketch" /> 普通会员</p>
+                                <p> <Icon type="sketch" /> {localStorage.getItem("username")?localStorage.getItem("username"):"普通会员"}</p>
                             </span>
                             <p className ='my-go-right'>
                             
@@ -128,12 +128,12 @@ class Mine extends Component{
                     </div>
                     </Link>
                 </div>
-                <div className = 'my-end'>
+                <div className = 'my-end' onClick={()=>{localStorage.removeItem('username');localStorage.removeItem('Authrization')}}>
                 <Link to="/Login">
                     <p>
                         退出登录
                     </p>
-                    </Link>
+                </Link>
                 </div>
                 
             </div>
