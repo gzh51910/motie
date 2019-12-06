@@ -57,8 +57,7 @@ class App extends Component {
                 <Route path="/Foundmore" component={Foundmore} />
                 <Route path="/allbooks" component={AllBooks} />
                 <Route path="/free" component={Free}/>
-                <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal" className="nav">
-                    
+                <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal" className="nav">            
                     <Menu.Item key="book">
                         <Link to="/bookshelf">
                             <Icon type="book" />

@@ -1,18 +1,18 @@
 .top-pic img{
     width: 100%;
 }
- .top-pic {
+.top-pic {
     position: relative;
     width: 100%;
     margin-top: .4rem;
     margin-bottom: .8rem;
 }
-article, aside, b, body, button, dd, div, dl, dt, figcaption, figure, footer, h1, h2, h3, h4, h5, h6, header, i, input, li, nav, p, section, select, span, textarea, ul {
+/* article, aside, b, body, button, dd, div, dl, dt, figcaption, figure, footer, h1, h2, h3, h4, h5, h6, header, i, input, li, nav, p, section, select, span, textarea, ul {
     padding: 0;
     margin: 0;
     list-style: none;
     font-style: normal;
-    font-size: .37333rem;
+    font-size: 4vw;
     text-decoration: none;
     border: none;
     color: #333;
@@ -25,4 +25,4 @@ article, aside, b, body, button, dd, div, dl, dt, figcaption, figure, footer, h1
     -webkit-tap-highlight-color: transparent;
     -webkit-font-smoothing: antialiased;
     -webkit-overflow-scrolling: touch;
-}
+} */

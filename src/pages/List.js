@@ -24,30 +24,55 @@ class List extends Component{
         ],
         datalist:[],
         down:true,
+        scrollDom:null,
+        page:1,
     }
     async componentDidMount(){
         let {data} = await my.get("/sort",{
            page:1,
         })
-    
-        
-
         this.setState({
             datalist:data
         })
-      
+        if (this.scrollDom) {
+            this.scrollDom.addEventListener("scroll", () => {
+              this.onScroll(this);
+            });
+          }
+          window.addEventListener('scroll', async () =>{
+            let h=document.body.scrollTop || document.documentElement.scrollTop;
+            console.log(h+window.screen.height,this.refs.list.offsetHeight);
+            
+            if(h+window.screen.height+10>this.refs.list.offsetHeight){
+                let {data} = await my.get("/sort",{
+                    page:2,
+                })
+                this.setState({
+                    datalist:[...this.state.datalist,...data]
+                })
+            }
+          }
+         
+        )
     }
     menupull=()=>{
         this.setState({
             down:!this.state.down
         })
-        
-        
     }
+
+     
+      
+     
+      onScroll() {
+        // const { clientHeight, scrollHeight, scrollTop } = this.scrollDom;
+        // const isBottom = clientHeight + scrollTop === scrollHeight;
+        console.log(clientHeight, scrollHeight, scrollTop, isBottom);
+      }
     render(){ 
         // let {datalist} = this.state;
         return (
-            <div id="List">
+            <div id="List" ref="list">
                 {/* 头部菜单 */}
                 <div id="ListMenu">
                     <div className="ListMenuHeader">
@@ -90,8 +115,8 @@ class List extends Component{
                     </div>
                 </div>
                 {/* 列表内容 */}
-                <div className="ListContents">
-                    <ul className="ListClear">
+                <div className="ListContents" ref={e => (this.scrollDom = e)}>
+                    <ul className="ListClear" >
                         {this.state.datalist.map((item)=>{
                         return    <GetList item={item} key={item.id}></GetList>
                         //     return  <li key={item.id}>
