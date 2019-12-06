@@ -57,7 +57,7 @@ class Homecb extends Component{
         let NEWbook_main =main[9].dataSourceList[0].dataList
         let foundit  = main[10].dataSourceList[0].dataList
         let foundit_name = main[10]
-        console.log("main:",main);
+        // console.log("main:",main);
         
             this.setState({
                 banner,
@@ -96,6 +96,10 @@ class Homecb extends Component{
         
         
     }
+    gothere = () =>{
+        console.log(111);
+        
+    }
     tiaozhuan = (id) =>{
         // console.log("--------",id);
         // this.props.history.push(`/homenv`);
@@ -131,8 +135,8 @@ class Homecb extends Component{
          let app7 = foundit.slice(0,3);
         let app8 = foundit.slice(3,6);
         let app9 = foundit.slice(6,9);
-        console.log(main,"++++++");
-        console.log(Finishedboutique_main,Finishedboutique,"++++");
+        // console.log(main,"++++++");
+        // console.log(Finishedboutique_main,Finishedboutique,"++++");
         //.dataSourceList[0].dataList
         
       
@@ -160,7 +164,7 @@ class Homecb extends Component{
                             <li><a>出版</a></li> */}
                         </ul>
                         <span className='spannn'><Icon type="search" onClick={()=>{this.sou()}}  /></span>
-                        <span className='spannn'>&nbsp;<Icon type="menu-unfold" /></span>
+                        <span className='spannn'>&nbsp;<Icon type="menu-unfold" onClick={()=>{this.gothere()}} /></span>
                         <div></div>
                         <div></div>
                     </header>     
@@ -170,7 +174,7 @@ class Homecb extends Component{
             {/* 轮播 */}
             <Carousel autoplay>
                 {  
-                    banner.map(item=>   <div key={item.name} ><img key={item.name}  src={item.imgUrl} /> </div>)
+                    banner.map(item=>   <div key={item.name} ><img key={item.name} onClick={()=>{this.getid()}}  src={item.imgUrl} /> </div>)
                 }
             </Carousel>
             </div>

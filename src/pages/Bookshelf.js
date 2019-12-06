@@ -17,6 +17,13 @@ class Bookshelf extends Component{
             id:this.props.history.location.search.slice(1)
         });
         let name = await my.get(`/Login?password=123&username=456`);
+
+        // let data = await my.get(
+        //     `/login?password=${password}&username=${username}`,  
+        // );
+        // console.log(data.data);
+        
+        
         console.log(name);
         let datas = data.data
         this.setState({

@@ -2,7 +2,8 @@ import React,{Component} from 'react';
 import {nsg,my} from '@/api';
 import '../css/home.css';
 import {Carousel,Icon,Menu,SubMenu,Badge} from 'antd'
-
+import FooterQr from '@@/FooterQr';
+import FooterPart from '@@/FooterPart';
 
 class Home extends Component{
     constructor(prop){
@@ -86,7 +87,20 @@ class Home extends Component{
         
         
     }
-   
+   getthere = ()=>{
+      
+       
+    this.refs.cover.style.left="0%"
+    
+       
+   }
+   back = ()=>{
+      
+       
+    this.refs.cover.style.left="102%"
+    
+       
+   }
     tiaozhuan = (id) =>{
         // console.log("--------",id);
         if(id==1){
@@ -140,7 +154,7 @@ class Home extends Component{
                             <li><a>出版</a></li> */}
                         </ul>
                         <span className='spannn'><Icon type="search" onClick={()=>{this.sou()}} /></span>
-                        <span className='spannn'>&nbsp;<Icon type="menu-unfold" /></span>
+                        <span className='spannn'>&nbsp;<Icon type="menu-unfold" onClick={()=>{this.getthere()}} /></span>
                         <div></div>
                         <div></div>
                     </header>     
@@ -151,7 +165,7 @@ class Home extends Component{
                 {/* 轮播 */}
                 <Carousel autoplay>
                         {  
-                            banner.map(item=>   <div key={item.name} ><img key={item.name}  src={item.imgUrl} /> </div>)
+                            banner.map(item=>   <div key={item.name} ><img key={item.name}  src={item.imgUrl} onClick={()=>{this.getid(item.addressId)}}/> </div>)
                         }
                     </Carousel>
 
@@ -260,6 +274,21 @@ class Home extends Component{
                 <div className="moer" onClick={()=>{this.getid(Collection_name.id)}} >查看更多</div>
 
                 {/*内容支撑  */}
+                <FooterPart/>
+                <FooterQr/>
+                            
+
+                {/*  */}
+                <div className="cover" ref="cover" style={{zIndex:"10"}}>
+                    <h4 onClick={()=>{this.back()}}>《</h4>
+                    <div style={{width:"100%",height:"182vw",overflowY:"scroll",zIndex:"10"}}>
+                        <div>
+                        <FooterPart/>
+                        <FooterQr/>
+                            
+                            
+                            </div></div></div>
+
                   <div className="mafooter"></div>
 
 

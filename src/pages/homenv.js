@@ -37,7 +37,7 @@ class Homenv extends Component{
 
          let datas = await my.get('nv');
         let main = datas.data
-        console.log(main,"main+++");
+        // console.log(main,"main+++");
         
         let  banner = main[0].dataSourceList[0].dataList
         let lvl = main[2].dataSourceList[0].dataList
@@ -87,7 +87,7 @@ class Homenv extends Component{
     }
     getmore = (id) =>{
       
-        console.log("id:",id);
+        // console.log("id:",id);
         
         
     }
@@ -115,7 +115,7 @@ class Homenv extends Component{
         Finishedboutique_main,WEATHERVANE,WEATHERVANE_name, NEWbook, NEWbook_main,foundit,foundit_name} = this.state
       
         // console.log(main,"++++++");
-        console.log(NEWbook,NEWbook_main,"++++");
+        // console.log(NEWbook,NEWbook_main,"++++");
         let app = recommend.slice(0,3);
         let app2 = recommend.slice(3,7);
         let pppdd1 = maincategory_main.slice(0,3);
@@ -126,7 +126,7 @@ class Homenv extends Component{
         let pppdd6 = maincategory_main.slice(15,18);
         let newbook = NEWbook_main.slice(0,1);
         let newbook2 = NEWbook_main.slice(1,5);
-        console.log(newbook2);
+        // console.log(newbook2);
         
         // //.dataSourceList[0].dataList
     
@@ -168,7 +168,7 @@ class Homenv extends Component{
                  {/* 轮播 */}
                 <Carousel autoplay>
                 {  
-                    banner.map(item=>   <div key={item.bookId} ><img key={item.name}  src={item.imgUrl} /> </div>)
+                    banner.map(item=>   <div key={item.bookId} ><img key={item.name} onClick={()=>{this.getid()}}   src={item.imgUrl} /> </div>)
                 }
                 </Carousel>
                 <div className='zhicheng'></div>

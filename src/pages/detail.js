@@ -76,7 +76,7 @@ class Detail extends Component {
 
         let username = localStorage.getItem("username")
         let data = await my.post(
-            "/reg",
+            "/addbook",
             {
             username, book
             }     

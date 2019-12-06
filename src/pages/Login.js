@@ -14,7 +14,7 @@ class Login extends Component{
             let data = await my.get(
                 `/login?password=${password}&username=${username}`,  
             );
-            console.log(data);
+            console.log(data.data);
             if (data.data.status === 1) {
               let Authrization = data.data.token;
               localStorage.setItem("Authrization", Authrization);
