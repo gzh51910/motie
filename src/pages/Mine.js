@@ -53,7 +53,8 @@ logOut =()=> {
                         <dt className = 'right'>
                             <span>
                             {username}
-                                <p> <Icon type="sketch" /> 普通会员</p>
+                                
+                                <p> <Icon type="sketch" /> {localStorage.getItem("username")?localStorage.getItem("username"):"普通会员"}</p>
                             </span>
                             <p className ='my-go-right'>
                             
@@ -154,10 +155,13 @@ logOut =()=> {
                     </div>
                     </Link>
                 </div>
-                <div className = 'my-end'>
-                    <p onClick = {this.logOut}>
-                        退出登录
-                    </p>
+                
+                <div className = 'my-end' onClick={()=>{localStorage.removeItem('username');localStorage.removeItem('Authrization')}}>
+                    <Link to="/Login">
+                        <p>
+                            退出登录
+                        </p>
+                    </Link>
                 </div>
                 
             </div>

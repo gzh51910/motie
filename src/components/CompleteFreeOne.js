@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import '@/css/CompleteFreeOne.css';
 import NoTimeContent from '@@/NoTimeContent';
+import { withRouter } from 'react-router-dom';
+
 class CompleteFreeOne extends Component{
     componentDidMount(){
         console.log(this.props);
@@ -19,7 +21,8 @@ class CompleteFreeOne extends Component{
                 <div className="Boutique-list">
                     <ul>
                         {data.map((item,idx)=>{
-                            return <li key={idx}>
+                            return <li key={idx} onClick={()=>{ this.props.history.push(`/detail?book=${item.bookId}`);
+                             }}>
                                 <img src={item.imgUrl} />
                                 <p>{item.bookName}</p>
                             </li>
@@ -33,4 +36,4 @@ class CompleteFreeOne extends Component{
         )
     }
 }
-export default CompleteFreeOne;
+export default withRouter(CompleteFreeOne);

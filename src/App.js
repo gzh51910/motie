@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import store from "@/store";
 import { Route, Redirect, Switch, Link, NavLink, withRouter } from 'react-router-dom';
 import {Menu,Icon} from 'antd'
 import './App.scss';
@@ -32,21 +32,86 @@ import Mydu from '~/mydu';
 import Jieshao from '~/jieshao';
 
 
+let routes=[
+    { path: "/", name: "Home", component: Home },
+    { path: "/Home", name: "Home", component: Home },
+    { path:"/mine", name: "mine", component: Mine, auth: true  },
+    { path:"/Reg", name: "Reg", component: Reg },
+    { path:"/mydu", name: "mydu", component: Mydu },
+    { path:"/jieshao", name: "jieshao", component: Jieshao },
+    { path:"/chongzhi", name: "chongzhi", component: Chongzhi },
+    { path:"/xiaofei", name: "xiaofei", component: Xiaofei, auth: true },
+    { path:"/dingyue", name: "dingyue", component: Dingyue, auth: true },
+    { path:"/huodong", name: "huodong", component: Huodong, auth: true },
+    { path:"/Inf", name: "Inf", component: Inf, auth: true },
+    { path:"/Invest", name: "Invest", component: Invest },
+    { path:"/Login", name: "Login", component: Login },
+    { path:"/bookshelf", name: "bookshelf", component: Bookshelf , auth: true},
+    { path:"/homenv", name: "homenv",component:homenv}, 
+    { path:"/homecb", name: "homecb",component:homecb},
+    { path:"/list", name: "list",component:List}, 
+    { path:"/detail", name: "detail",component:Detail}, 
+    { path:"/reward", name: "reward",component:Reward}, 
+    { path:"/rank", name: "rank",component:Rank},
+    { path:"/read", name: "read",component:Read}, 
+    { path:"/Foundmore", name: "Foundmore",component:Foundmore}, 
+    { path:"/allbooks", name: "allbooks",component:AllBooks},
+    { path:"/free", name: "free",component:Free},
+    { path:"/sou", name: "sou",component:sou}
+]
+
+ 
+
+
+
+
 // import Test from '~/Test';
 class App extends Component {
   
     state = {
         
     }
-    
-    
-
+    checktoken=async ()=>{
+        let {data}= await my.get("/checktoken",{
+            token:localStorage.getItem("Authrization") || "",
+            username:localStorage.getItem("username") || ""
+        })
+        this.setState({
+            token:data.msg,
+        })
+    }
+    shouldComponentUpdate(p,s){
+        console.log(s,this.state);
+        
+        if(s.token==this.state.token){
+            return false;
+        }
+        return true
+    }
+    componentDidMount(){
+        console.log(12125454);
+        
+    }
     render() {
-     
-     
+        // console.log("=======",data.msg)
+        let {token}=this.state
         return (
             <div>
-                <Route path="/" component={Home} exact/>
+                {routes.map((item, index) => {
+                    // let {data}=await this.checktoken()
+
+                    return <Route key={index} path={item.path} exact render={props =>{
+                        console.log(this.checktoken(),token,item.path);
+                        
+                        return (!item.auth ? (<item.component {...props} />) : (token ? <item.component {...props} /> : <Redirect to={{
+                            pathname: '/Login',
+                            state: { from: props.location }
+                        }} />))}
+                    }
+                        
+                     />
+                })}
+                {/* <Route path="/" component={Home} exact/>
                 <Route path="Home" component={Home} exact/>
                 <Route path="/mine" component={Mine} />
                 <Route path="/Reg" component={Reg} />
@@ -70,7 +135,9 @@ class App extends Component {
                 <Route path="/Foundmore" component={Foundmore} />
                 <Route path="/allbooks" component={AllBooks} />
                 <Route path="/free" component={Free}/>
-                <Route path="/sou" component={sou}/>
+                <Route path="/sou" component={sou}/> */}
+
+
                 {/* <Route path="/Test" component={Test}/> */}
                 <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal" className="nav">
                     

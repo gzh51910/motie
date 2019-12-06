@@ -12,10 +12,10 @@ class Bookshelf extends Component{
 
 
     tiaozhuan = (id) =>{
-        if(id==1){
-        }else if(id == 2){
-            this.props.history.push(`/mydu`);
+        if(id==1){     this.props.history.push(`/Bookshelf`);
     
+        }else if(id == 2){
+       
         }
     }
     

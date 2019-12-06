@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import {nsg,my} from '@/api';
 import '../css/home.css';
 import {Carousel,Icon,Menu,SubMenu,Badge} from 'antd'
+import StoreTable from 'antd/lib/table/Table';
 
 
 class Home extends Component{
@@ -26,14 +27,14 @@ class Home extends Component{
             NEWbook_main:[],
             foundit:[],
             foundit_name:[],
-            
+            current: ''
 
          
         }
     }
     async componentDidMount(){
 
-         let datas = await my.get('main');
+        let datas = await my.get('main');
         let main = datas.data
         let  banner = main[0].dataSourceList[0].dataList
         let lvl = main[2].dataSourceList[0].dataList
@@ -86,6 +87,24 @@ class Home extends Component{
         
         
     }
+    handleClick = e => {
+        
+        this.setState({
+          current: e.key,
+        });
+        if(e.key=="分类"){
+            this.props.history.push("/list")
+        }
+        else if(e.key=="排行"){
+            this.props.history.push("/rank")            
+        }
+        else if(e.key=="全本"){
+            this.props.history.push("/allbooks")            
+        }
+        else if(e.key=="免费"){
+            this.props.history.push("/free")            
+        }
+    };
    
     tiaozhuan = (id) =>{
         // console.log("--------",id);
@@ -107,6 +126,7 @@ class Home extends Component{
         this.props.history.push("/sou")
         
     }
+    
     render(){
         let {banner,lvl,recommend,main,recommend_name,maincategory,maincategory_main,datu,Collection,Collection_name,Finishedboutique,
         Finishedboutique_main,WEATHERVANE,WEATHERVANE_name, NEWbook, NEWbook_main,foundit,foundit_name} = this.state
@@ -114,9 +134,7 @@ class Home extends Component{
         // console.log(main,"++++++");
         // console.log(datu,"++++");
         //.dataSourceList[0].dataList
-        
-      
-      
+
         return (
             <div>
             <div>
@@ -166,10 +184,11 @@ class Home extends Component{
                 {/* 分类列表 */}
                 <Menu
                     mode="horizontal"
+                    onClick={this.handleClick}
                    >
                     {
                         lvl.map(item => {
-                            return <Menu.Item key={item.addressId} style={{width:'24%'}}>
+                            return <Menu.Item key={item.name} style={{width:'24%'}}>
                                 {
                                     <div>
                                     <img src={item.imgUrl} style={{width:"15vw",height:"15vw"}}></img>

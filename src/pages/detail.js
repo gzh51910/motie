@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import {my} from '@/api'
+import {my,nsg} from '@/api'
 import {Icon} from 'antd';
 import "../css/detail.css"
 import { Item } from 'rc-menu';
 import { relative } from 'path';
 import Detailtop from '../components/Detailtop';
 import Pagelist from '../components/Pagelist'
+import FooterQr from '../components/FooterQr';
 let Styles = {
     mt:{
         marginTop:20
@@ -38,6 +39,7 @@ class Detail extends Component {
     componentDidMount() {
         let id=this.props.location.search.split("=")[1];
         this.getData(id)
+        
     }
     goto(id){
         this.setState({pagelist:[]})
@@ -61,19 +63,26 @@ class Detail extends Component {
         })
         
     }
+    booksheif= async (id)=>{
+        let book = []
+        book.push(id)
+
+        let username = localStorage.getItem("username")
+        let data = await my.post(
+            "/reg",
+            {
+            username, book
+            }     
+        );    
+        console.log(data);
+    }
     render() {
-        let {detail,view,pagelist,hide}=this.state;
-        
+        let {detail,view,pagelist,hide}=this.state;    
+     
         return (
             <div style={{position:"relative"}}>
                 <div style={{position:"relative"}}>
                     <img src={detail.icon} className="bgimg"/>
-                    {/* <div className="detailtop">
-                        <Icon type="left" className="back"/>
-                        作品详情
-                        <Icon type="home" className="ricon"/>
-                        <Icon type="search" className="ricon"/>
-                    </div> */}
                     <Detailtop name="作品详情"/>
                     <div className="bookwrap">
                     <div className="bookdetail clear">
@@ -91,7 +100,7 @@ class Detail extends Component {
                         </div>
                     </div>
                     <div className="bookbtn">
-                        <span>加入书架</span>
+                        <span onClick={()=>{this.booksheif(detail.id)}}>加入书架</span>
                         <span onClick={()=>{ this.props.history.push(`/read?id=${detail.firstChapterId}&bookid=${detail.id}`)} }>立即阅读</span>
                     </div>
                     <div className="bookct">
@@ -150,6 +159,7 @@ class Detail extends Component {
                 </div>
 
                 <Pagelist pagelist={pagelist} hide={hide} tohide={this.tohide} className="pagelist"/>
+                <FooterQr />
             </div>
         )
     }
