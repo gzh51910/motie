@@ -386,3 +386,12 @@ img {
     height: 1px;
     background: #f5f5e5;
 }
+.cover {
+    width: 100%;
+
+    position: fixed;
+    background: #fff;
+    top: 0;
+    transition: 0.5s;
+    left: 102%;
+}

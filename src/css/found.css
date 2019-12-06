@@ -291,10 +291,11 @@ h3 i {
     width: 100%;
 
     position: fixed;
-    background: #fff;
+    background: #eee;
     top: 0;
     transition: 0.5s;
     left: 102%;
+    opacity: 1;
 }
 
 .discoverH3 {

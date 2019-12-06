@@ -167,5 +167,6 @@ class App extends Component {
 }
 import { format } from 'path';
 
+// App = connect()(App)
 App = withRouter(App);
 export default App;
