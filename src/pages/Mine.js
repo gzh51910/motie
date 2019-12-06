@@ -2,8 +2,7 @@ import React,{Component} from 'react';
 import {withToken} from '../utils/hoc';
 import ReactDOM from 'react-dom';
 import {Icon,Button,Radio,Divider} from 'antd';
-import { Route, Redirect, Switch, Link, NavLink, withRouter } from 'react-router-dom';
-import Login from '~/Login';
+import { Route, Redirect, Switch, Link, NavLink, withRouter} from 'react-router-dom';
 import '../css/Mine.css'
 
 
@@ -11,11 +10,38 @@ class Mine extends Component{
     constructor(){
         super()
         this.state = {
-            token:''
-        }
-  
+            token:'',
+            username:''
+        };
+
+};
+
+componentWillMount() {
+    console.log(window.localStorage.username);
+    
+    if(window.localStorage == ''){
+        this.props.history.push('/Login');
+    }else {
+        this.props.history.push('/Mine');
+    }
 }
+
+
+componentDidMount () {
+    var storage = window.localStorage;
+    var username =storage.getItem("username");    
+    console.log(username);
+    this.setState({username});
+};
+
+logOut =()=> {
+    localStorage.clear('');
+    this.props.history.push('/Login');
+};
+
+
     render(){
+        let {username} = this.state;
         return (
             <div className = 'my-body'>
                 <Link to="/Inf">
@@ -26,8 +52,9 @@ class Mine extends Component{
                         </dt>
                         <dt className = 'right'>
                             <span>
+                            {username}
                                 
-                                <p> <Icon type="sketch" /> 普通会员</p>
+                                <p> <Icon type="sketch" /> {localStorage.getItem("username")?localStorage.getItem("username"):"普通会员"}</p>
                             </span>
                             <p className ='my-go-right'>
                             
@@ -128,11 +155,12 @@ class Mine extends Component{
                     </div>
                     </Link>
                 </div>
-                <div className = 'my-end'>
-                <Link to="/Login">
-                    <p>
-                        退出登录
-                    </p>
+                
+                <div className = 'my-end' onClick={()=>{localStorage.removeItem('username');localStorage.removeItem('Authrization')}}>
+                    <Link to="/Login">
+                        <p>
+                            退出登录
+                        </p>
                     </Link>
                 </div>
                 
@@ -141,7 +169,7 @@ class Mine extends Component{
     }
 }
 
-Mine = withToken(Mine)
+Mine = withRouter(withToken(Mine))
 
 
 

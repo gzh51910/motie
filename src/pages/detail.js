@@ -6,6 +6,7 @@ import { Item } from 'rc-menu';
 import { relative } from 'path';
 import Detailtop from '../components/Detailtop';
 import Pagelist from '../components/Pagelist'
+import FooterQr from '../components/FooterQr';
 let Styles = {
     mt:{
         marginTop:20
@@ -38,9 +39,6 @@ class Detail extends Component {
     componentDidMount() {
         let id=this.props.location.search.split("=")[1];
         this.getData(id)
-
-        // let losc = localStorage.getItem("username")
-        // console.log(losc);
         
     }
     goto(id){
@@ -66,11 +64,6 @@ class Detail extends Component {
         
     }
     booksheif= async (id)=>{
-
-        // let reg = await my.get("/reg");
-        // console.log(reg);
-        console.log(id);
-        // this.props.history.push(`/Bookshelf?${id}`)
         let book = []
         book.push(id)
 
@@ -84,20 +77,12 @@ class Detail extends Component {
         console.log(data);
     }
     render() {
-        let {detail,view,pagelist,hide}=this.state;
-        // console.log(detail);
-        
-        
+        let {detail,view,pagelist,hide}=this.state;    
+     
         return (
             <div style={{position:"relative"}}>
                 <div style={{position:"relative"}}>
                     <img src={detail.icon} className="bgimg"/>
-                    {/* <div className="detailtop">
-                        <Icon type="left" className="back"/>
-                        作品详情
-                        <Icon type="home" className="ricon"/>
-                        <Icon type="search" className="ricon"/>
-                    </div> */}
                     <Detailtop name="作品详情"/>
                     <div className="bookwrap">
                     <div className="bookdetail clear">
@@ -174,6 +159,7 @@ class Detail extends Component {
                 </div>
 
                 <Pagelist pagelist={pagelist} hide={hide} tohide={this.tohide} className="pagelist"/>
+                <FooterQr />
             </div>
         )
     }

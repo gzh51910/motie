@@ -53,7 +53,7 @@ module.exports = {
 
             {
                 // 正则匹配所有以.png,jpg,gif结尾的文件
-                test: /\.(png|jpg|gif)$/,
+                test: /\.(png|jpe?g|gif)$/,
                 // 使用url-loader对图片进行处理
                 use: [
                     {

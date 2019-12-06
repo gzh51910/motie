@@ -24,6 +24,8 @@ class List extends Component{
         ],
         datalist:[],
         down:true,
+        scrollDom:null,
+        page:1,
         page:1,
         show:true
     }
@@ -35,6 +37,26 @@ class List extends Component{
             datalist:data,
             page:this.state.page+=1
         })
+        if (this.scrollDom) {
+            this.scrollDom.addEventListener("scroll", () => {
+              this.onScroll(this);
+            });
+          }
+          window.addEventListener('scroll', async () =>{
+            let h=document.body.scrollTop || document.documentElement.scrollTop;
+            console.log(h+window.screen.height,this.refs.list.offsetHeight);
+            
+            if(h+window.screen.height+10>this.refs.list.offsetHeight){
+                let {data} = await my.get("/sort",{
+                    page:2,
+                })
+                this.setState({
+                    datalist:[...this.state.datalist,...data]
+                })
+            }
+          }
+         
+        )
         window.onscroll=async ()=>{
             // 滚动条（滚过）的高度+现显示的页面的高度？=整个页面的高度（一页的高度），请求下一页数据
             // documentElement== html
@@ -89,22 +111,9 @@ class List extends Component{
                 page:this.state.page+=1
             })
         },0)
-
-        //https://app2.motie.com/category/detail?free=0&finish=0&group=2&sortId=&page=1&pageSize=10{
-            //     free:price*1,
-            //     finish:condition*1,
-            //     group:channel*1+1,
-            //     sortId:"",
-            //     page:this.state.page,
-            //     pageSize:10
-            // }
-        //https://app2.motie.com/category/detail?free=0&finish=0&group=2&sortId=&page=1&pageSize=10
-        
-        
     }
     shouldComponentUpdate(p,s){
-        // 优化：  判断什么刷新（当前状态props=下一次状态state时不刷新（show和datalist两个同时满足，不刷新），page+1时刷新）
-        // console.log(this.state.show,"=======",s);
+        
         if(this.state.show==s.show && this.state.datalist === s.datalist && this.state.down == s.down){
             return false   //不刷新
         }
@@ -117,7 +126,7 @@ class List extends Component{
                 {/* 头部菜单 */}
                 <div id="ListMenu">
                     <div className="ListMenuHeader">
-                        <Icon className="ListHeaderBack" type="left" />
+                        <Icon className="ListHeaderBack" type="left" onClick={()=>{this.props.history.push("/")}}/>
                         <h2>分类</h2>
                     </div>
 
@@ -133,19 +142,7 @@ class List extends Component{
                                     <span className="ListMenuChannel-L">{item.title}</span>
                                     {/* 菜单列表 */}
                                     <GetListMenu item={item}/>
-                                    {//item.classify.map((ele,index)=>{
-                                        //return <GetListMenu item={item}/>
-                                        
-                                    //     return <span className="ListMenuChannel-R" key={index+"i"} >
-                                    //     <i onClick="" className={this.state.active==index?"ListMenuIcon-Active ListMenuIcon":"ListMenuIcon"}>{ele}</i>
-                                    // </span>
-                                    //}
-                                    //)
-                                        /* // item.classify.map((ele,index)=>{
-                                        //     return <span key={index}>{ele}</span>
-                                        // })  
-                                    */
-                                    }
+                                    
                                 </div>
                             )
                       
@@ -162,34 +159,10 @@ class List extends Component{
                     <ul className="ListClear">
                         {datalist.map((item)=>{
                         return    <GetList item={item} key={item.id+""+Math.random()}></GetList>
-                        //     return  <li key={item.id}>
-                        //     <figure><img src={item.icon} /></figure>
-                        //    <figcaption>
-                        //         <h4>{item.name}</h4>
-                        //         <p className="ListContents-Des">{item.recommend}</p>
-                        //         <p className="ListContents-MSg">
-                        //             <span className="MSg-L">
-                        //                 <img src={item.authorIcon}/>{item.authorName}
-                        //             </span>
-                        //             {item.bookTags.map(ele=>{
-                        //             return <span className="MSg-R">{ele}</span>
-                        //             })} 
-                        //         </p>
-                        //     </figcaption> 
-                        // </li>
+                        
                         })}
 
-                        {/* <li>
-                            <figure><img src={} /></figure>
-                            <figcaption>
-                                <h4>{}</h4>
-                                <p className="ListContents-Des">{}</p>
-                                <p className="ListContents-MSg">
-                                    <span className="MSg-L"><img src={}/>{}</span>
-                                    <span className="MSg-R">{}</span>
-                                </p>
-                            </figcaption>
-                        </li> */}
+                        
                     </ul>
                 </div>
 
