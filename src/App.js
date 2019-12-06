@@ -39,6 +39,7 @@ class App extends Component {
         
     }
     
+    
 
     render() {
      
@@ -86,7 +87,7 @@ class App extends Component {
                         </Link>
                     </Menu.Item>
                     <Menu.Item key="user">
-                        <Link to="/Login">
+                        <Link to="/Mine">
                             <Icon type="user" />
                             我的
                         </Link>
