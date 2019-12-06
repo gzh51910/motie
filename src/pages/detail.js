@@ -64,10 +64,15 @@ class Detail extends Component {
         
     }
     booksheif= async (id)=>{
-        let book = []
-        book.push(id)
+        let books = []
+        books.push(id)
 
         let username = localStorage.getItem("username")
+        // let username = window.localStorage.username  /*  用户名字 */
+        let name = await my.get(`/bookshelf?username=${username}`);
+        console.log(name);
+        let book = name.data[0].book
+        book.push(...books)
         let data = await my.post(
             "/addbook",
             {

@@ -17,7 +17,7 @@ class Mine extends Component{
 };
 
 componentWillMount() {
-    console.log(window.localStorage.username);
+    // console.log(window.localStorage.username);
     
     if(window.localStorage == ''){
         this.props.history.push('/Login');
@@ -29,8 +29,11 @@ componentWillMount() {
 
 componentDidMount () {
     var storage = window.localStorage;
-    var username =storage.getItem("username");    
-    console.log(username);
+    var username =storage.getItem("username");   
+    var book =storage.getItem("book");     
+    // console.log(username);
+    // console.log(book);
+    
     this.setState({username});
 };
 
