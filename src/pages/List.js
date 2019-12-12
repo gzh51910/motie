@@ -57,7 +57,7 @@ class List extends Component{
           }
          
         )
-        window.onscroll=async ()=>{
+        this.refs.list.onscroll=async ()=>{
             // 滚动条（滚过）的高度+现显示的页面的高度？=整个页面的高度（一页的高度），请求下一页数据
             // documentElement== html
             let h=(document.body.scrollTop || document.documentElement.scrollTop)+window.screen.height;
